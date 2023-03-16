@@ -1,0 +1,41 @@
+html {
+
+    @include media-breakpoint-only(sm) {
+      margin-top: 64px !important;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 52px !important;
+    }
+}
+
+body {
+
+    @include media-breakpoint-up(md) {
+      margin-top: 86px;
+    }
+}
+
+#wpadminbar {
+  @extend .d-d-sm-n;
+}
+
+.bs-h-l {
+
+    @include media-breakpoint-up(md) {
+      z-index: 1;
+
+        &:hover::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          border-radius: inherit;
+          box-shadow: 0 2px 15px $dark;
+          opacity: .2;
+        }
+    }
+}

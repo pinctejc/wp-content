@@ -1,0 +1,33 @@
+.breadcrumbs {
+
+    &__list {
+      font-size: 0;
+
+        > span {
+          display: block;
+          color: $dark;
+          font-size: 10px;
+
+            > span {
+              font-weight: $font-weight-medium;
+            }
+
+            &:not(:last-child) {
+
+                &::after {
+                  content: '/';
+                  margin: 0 5px;
+                }
+            }
+        }
+
+        a {
+          color: inherit;
+
+            &:hover {
+              color: $link-hover-color;
+              text-decoration: $link-hover-decoration;
+            }
+        }
+    }
+}

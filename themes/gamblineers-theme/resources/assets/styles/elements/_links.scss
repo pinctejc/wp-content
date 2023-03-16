@@ -1,0 +1,24 @@
+//
+// Links
+//
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+
+    &:not([class]):hover {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+}
+
+a,
+button {
+
+    &:hover {
+
+        svg {
+          fill: currentColor;
+        }
+    }
+}

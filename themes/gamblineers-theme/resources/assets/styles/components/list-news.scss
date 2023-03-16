@@ -1,0 +1,135 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.ln {
+
+    &--slider {
+
+        @include media-breakpoint-down(sm) {
+
+            .js-news-loadmore {
+              display: none !important;
+            }
+
+            .js-list-cta {
+              display: inline-flex !important;
+            }
+        }
+    }
+
+    .swiper {
+
+        @include media-breakpoint-up(sm) {
+          overflow: visible;
+        }
+    }
+
+    .swiper-slide {
+
+        @include media-breakpoint-down(xs) {
+          width: auto;
+        }
+    }
+
+    &__box {
+
+        @include media-breakpoint-down(xs) {
+
+            .swiper-slide & {
+              width: 265px;
+            }
+        }
+    }
+
+    &__thumb {
+      padding-bottom: percentage(196 / 400);
+
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          margin: auto;
+        }
+    }
+
+    &__date {
+      right: 10px;
+      bottom: 10px;
+      z-index: 2;
+    }
+}
+
+// List news categories
+.lnc {
+
+    &__btn {
+
+        &.active {
+          color: $white;
+          background: $primary-variant;
+        }
+    }
+}
+
+// List News Pagination
+.lnp {
+
+    .page-numbers {
+      display: block;
+      width: 34px;
+      height: 34px;
+      margin-left: 4px;
+      margin-right: 4px;
+      font-size: 16px;
+      font-weight: $font-weight-bold;
+      line-height: 34px;
+      text-align: center;
+      border-radius: 10px;
+      color: $dark;
+
+        &.current {
+          color: $white;
+          background: $primary-variant;
+        }
+    }
+
+    a:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+
+    // .next,
+    // .prev {
+    //   position: absolute;
+    //   top: 0;
+    //   font-size: 0;
+    //   margin-left: 0;
+    //   margin-right: 0;
+    //   background: transparent;
+
+    //     path {
+    //       fill: rgba(#322222, .2);
+    //     }
+
+    //     &:hover {
+    //       background: transparent;
+
+    //         path {
+    //           fill: $primary;
+    //         }
+    //     }
+    // }
+
+    // .next {
+    //   right: 0;
+    // }
+
+    // .prev {
+    //   left: 0;
+    // }
+}

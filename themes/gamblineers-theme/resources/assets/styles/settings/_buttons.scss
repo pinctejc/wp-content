@@ -1,0 +1,37 @@
+//
+// Buttons
+//
+$btn-prefix: 'btn';
+$btn-height: 50px;
+$btn-padding-y: 0;
+$btn-padding-x: 14px;
+$btn-font-size: 16px;
+$btn-line-height: null;
+$btn-border-radius: 50rem;
+
+$btn-font-family: null;
+$btn-font-weight: $font-weight-medium;
+$btn-color: $link-color;
+$btn-hover-color: $link-hover-color;
+$btn-decoration: if($link-decoration == none, null, none);
+$btn-hover-decoration: none;
+$btn-white-space: nowrap;
+$btn-border-width: 1px; // 1px
+$btn-border-style: solid; // Solid
+$btn-border-color: transparent; // transparent
+
+$btn-transition: 250ms ease-in-out;
+
+$btn-disabled-opacity: .5;
+
+$btn-colors: map-merge((
+  'g': #4cc26d,
+  'w': $white,
+  'b': $black
+), $theme-colors);
+
+$btn-hover-colors: map-merge((
+  'g': $secondary,
+  'w': $secondary,
+  'b': $secondary
+), $theme-hover-colors);

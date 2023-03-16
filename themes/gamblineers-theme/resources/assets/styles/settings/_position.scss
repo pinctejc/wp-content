@@ -1,0 +1,11 @@
+//
+// Position
+//
+$position-prexix: 'ps';
+$positions: (
+  's': static,
+  'r': relative,
+  'a': absolute,
+  'f': fixed,
+  'st': sticky
+);

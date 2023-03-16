@@ -1,0 +1,72 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+
+.swiper {
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  transform: translate3d(0, 0, 0);
+
+}
+
+.swiper-android {
+
+    .swiper-slide {
+      transform: translate3d(0, 0, 0);
+    }
+}
+
+.swiper-pointer-events {
+  touch-action: pan-y;
+
+    &.swiper-vertical {
+      touch-action: pan-x;
+    }
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  position: relative;
+  transition-property: transform;
+}
+
+.swiper-slide-invisible-blank {
+  visibility: hidden;
+}
+
+/* Auto Height */
+.swiper-autoheight {
+
+    &,
+    .swiper-slide {
+      height: auto;
+    }
+
+    .swiper-wrapper {
+      align-items: flex-start;
+      transition-property: transform, height;
+    }
+}
+
+.swiper-backface-hidden {
+
+    .swiper-slide {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+}

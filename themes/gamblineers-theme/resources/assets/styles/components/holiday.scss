@@ -1,0 +1,15 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.holiday {
+  z-index: 4;
+  right: 15px;
+  bottom: 10px;
+
+    .single-post & {
+      bottom: 65px;
+    }
+}

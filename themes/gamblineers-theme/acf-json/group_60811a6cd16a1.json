@@ -1,0 +1,130 @@
+{
+    "key": "group_60811a6cd16a1",
+    "title": "Button Load",
+    "fields": [
+        {
+            "key": "field_60811a6ce3bad",
+            "label": "Name",
+            "name": "label",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Load More",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60811a6ce3c0a",
+            "label": "Type",
+            "name": "type",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "Solid color",
+                "2": "Ghost buton"
+            },
+            "allow_null": 0,
+            "default_value": 1,
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_6270d6cb76597",
+            "label": "Button Color",
+            "name": "btn_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "p": "Primary",
+                "pv": "Primary Variant",
+                "s": "Secondary",
+                "sv": "Secondary Variant",
+                "n": "Neutral",
+                "d": "Dark",
+                "l": "Light",
+                "b": "Black",
+                "w": "White"
+            },
+            "default_value": "p",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6270d6d076598",
+            "label": "Text Color",
+            "name": "text_color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "tc-p": "Primary",
+                "tc-pv": "Primary Variant",
+                "tc-s": "Secondary",
+                "tc- sv": "Secondary Variant",
+                "tc-n": "Neutral",
+                "tc-d": "Dark",
+                "tc-l": "Light",
+                "tc-b": "Black",
+                "tc-w": "White"
+            },
+            "default_value": "tc-w",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": ""
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1654840283
+}

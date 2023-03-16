@@ -1,0 +1,25 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.sc {
+
+    &__thumb {
+
+        @include media-breakpoint-up(md) {
+          width: 100px;
+          height: 58px;
+        }
+
+        @include media-breakpoint-only(sm) {
+          height: 85px;
+        }
+
+        @include media-breakpoint-down(xs) {
+          width: 125px;
+          height: 73px;
+        }
+    }
+}

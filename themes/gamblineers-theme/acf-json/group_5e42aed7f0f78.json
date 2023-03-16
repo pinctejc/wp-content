@@ -1,0 +1,48 @@
+{
+    "key": "group_5e42aed7f0f78",
+    "title": "Visibility",
+    "fields": [
+        {
+            "key": "field_5e42af08b19ae",
+            "label": "Visibility",
+            "name": "visibility",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0": "Visible all devices",
+                "d-o-xs-n": "Visible only desktop",
+                "d-u-sm-n": "Visible only mobile"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": ""
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1643092760
+}

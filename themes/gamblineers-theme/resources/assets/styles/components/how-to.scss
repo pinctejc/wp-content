@@ -1,0 +1,17 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.ht {
+
+    &__img {
+
+        @include media-breakpoint-down(xs) {
+          top: 0;
+          right: 0;
+          width: 62px;
+        }
+    }
+}

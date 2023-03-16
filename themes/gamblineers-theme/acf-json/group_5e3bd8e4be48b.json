@@ -1,0 +1,330 @@
+{
+    "key": "group_5e3bd8e4be48b",
+    "title": "Background",
+    "fields": [
+        {
+            "key": "field_5fa2acda92b7b",
+            "label": "Background",
+            "name": "background",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_60266b2a2c647",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e3bda6d25b78",
+                            "label": "Background Color",
+                            "name": "theme",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "0": "Select Background",
+                                "bg-u-sm-p": "Primary",
+                                "bg-u-sm-pv": "Primary Variant",
+                                "bg-u-sm-s": "Secondary",
+                                "bg-u-sm-sv": "Secondary Variant",
+                                "bg-u-sm-n": "Neutral",
+                                "bg-u-sm-d": "Dark",
+                                "bg-u-sm-l": "Light",
+                                "bg-u-sm-b": "Black",
+                                "bg-u-sm-w": "White"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_60266b482c648",
+                            "label": "Background Image",
+                            "name": "type",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "2": "Yes",
+                                "1": "No"
+                            },
+                            "allow_null": 0,
+                            "default_value": 1,
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_60266bc62c64b",
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_60266b482c648",
+                                        "operator": "==",
+                                        "value": "2"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_602a41e631fa5",
+                            "label": "Position",
+                            "name": "position",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_60266b482c648",
+                                        "operator": "==",
+                                        "value": "2"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top-left": "Top Left",
+                                "top-center": "Top Center",
+                                "top-right": "Top Right",
+                                "left-center": "Left Center",
+                                "center-center": "Center Center",
+                                "right-center": "Right Center",
+                                "bottom-left": "Bottom Left",
+                                "bottom-center": "Bottom Center",
+                                "bottom-right": "Bottom Right"
+                            },
+                            "default_value": "center-center",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_60266bf3a00e7",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_60266bf3a00ea",
+                            "label": "Background Color",
+                            "name": "theme",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "0": "Select Background",
+                                "bg-o-xs-p": "Primary",
+                                "bg-o-xs-pv": "Primary Variant",
+                                "bg-o-xs-s": "Secondary",
+                                "bg-o-xs-sv": "Secondary Variant",
+                                "bg-o-xs-n": "Neutral",
+                                "bg-o-xs-d": "Dark",
+                                "bg-o-xs-l": "Light",
+                                "bg-o-xs-b": "Black",
+                                "bg-w": "White"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_60266bf3a00e8",
+                            "label": "Background Image",
+                            "name": "type",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "2": "Yes",
+                                "1": "No"
+                            },
+                            "allow_null": 0,
+                            "default_value": 1,
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_60266bf3a00ec",
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_60266bf3a00e8",
+                                        "operator": "==",
+                                        "value": "2"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_602a42d931fa6",
+                            "label": "Position",
+                            "name": "position",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_60266bf3a00e8",
+                                        "operator": "==",
+                                        "value": "2"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top-left": "Top Left",
+                                "top-center": "Top Center",
+                                "top-right": "Top Right",
+                                "left-center": "Left Center",
+                                "center-center": "Center Center",
+                                "right-center": "Right Center",
+                                "bottom-left": "Bottom Left",
+                                "bottom-center": "Bottom Center",
+                                "bottom-right": "Bottom Right"
+                            },
+                            "default_value": "center-center",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": ""
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1643092436
+}

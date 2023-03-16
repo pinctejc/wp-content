@@ -1,0 +1,29 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+mjx-container {
+
+    &[jax='SVG'] {
+      margin: 0 !important;
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle !important;
+    }
+}
+
+
+.calc {
+
+    img {
+
+        @include media-breakpoint-down(xs) {
+          max-width: 100px;
+        }
+    }
+}

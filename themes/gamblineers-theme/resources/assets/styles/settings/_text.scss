@@ -1,0 +1,41 @@
+//
+// Text
+//
+
+// Text Colors
+$text-color-prefix: 'tc';
+$text-colors: map-merge((
+  'w': $white,
+  'b': $black,
+  'in': inherit
+),
+$theme-colors);
+
+$text-hover-colors: map-merge((
+  'w': darken($white, 10%),
+  'b': $primary
+),
+$theme-hover-colors);
+
+// Text Align
+$text-align-prefix: 'ta';
+$text-aligns: (
+  'l': left,
+  'c': center,
+  'r': right
+);
+
+// Text Transform
+$text-transform-prefix: 'tt';
+$text-transforms: (
+  'l': lowercase,
+  'u': uppercase,
+  'c': capitalize
+);
+
+// Text Decaration
+$text-decoration-prefix: 'td';
+$text-decorations: (
+  'n': none,
+  'u': underline,
+);

@@ -1,0 +1,34 @@
+.rating {
+  width: 180px;
+  height: 16px;
+  box-shadow: 0 0 0 1px #c1c1c1;
+  @include gradient-x-three-colors(#ff0f0f, #ffbb0d, 50%, #5ac803);
+
+    &__fill {
+      min-width: 14px;
+      border: 1px solid $white;
+      background: transparent;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          right: -9px;
+          bottom: -10px;
+          margin: auto;
+          width: 18px;
+          height: 16px;
+          background: escape-svg('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="16px"> <path fill-rule="evenodd"  fill="rgb(255, 255, 255)" d="M0.000,16.000 C4.971,16.000 9.000,12.418 9.000,8.000 C9.000,3.582 4.971,-0.000 0.000,-0.000 L18.000,-0.000 L18.000,16.000 L0.000,16.000 Z"/></svg>');
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 650px;
+          top: -1px;
+          left: 100%;
+          bottom: -1px;
+          background: $white;
+        }
+    }
+}

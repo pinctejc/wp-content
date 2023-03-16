@@ -1,0 +1,128 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+// News Header
+.nh {
+  @include gradient-y($light, $body-bg, 0, 50%);
+
+    @include media-breakpoint-up(md) {
+
+        &__img {
+          min-width: 100%;
+          min-height: 100%;
+          object-fit: cover;
+        }
+    }
+}
+
+// News Aside
+.na {
+
+  &__box {
+    box-shadow: $box-shadow-1;
+
+      &__thumb {
+        height: 150px;
+      }
+
+      &__tc {
+        color: #b1beb8;
+        font-size: 11px;
+
+          a {
+            color: inherit;
+          }
+      }
+  }
+}
+
+// News Navigation
+.nn {
+
+  > span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-radius: 6px;
+    border: 1px solid $light;
+
+      &:hover {
+        box-shadow: 0 2px 8px rgba($black, .15);
+      }
+
+      a {
+        color: $dark;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: auto;
+            background-color: rgba(0, 0, 0, 0);
+          }
+
+          &:hover {
+            color: $primary-variant;
+
+              path {
+                fill: $primary;
+              }
+          }
+      }
+
+      @include media-breakpoint-up(md) {
+        width: 45%;
+        flex: 0 0 45%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 20px;
+      }
+
+      svg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      &.prev {
+        padding-left: 50px;
+        padding-right: 20px;
+
+          svg {
+            left: 20px;
+          }
+      }
+
+      &.next {
+        margin-left: auto;
+        padding-left: 20px;
+        padding-right: 50px;
+
+          svg {
+            right: 20px;
+          }
+      }
+  }
+}
+
+// News Similar
+.ns {
+
+    &__thumb {
+
+        @include media-breakpoint-only(md) {
+          width: 60px;
+        }
+    }
+}
+

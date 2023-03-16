@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en-US">
+  <head><meta charset="utf-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" as="script" href="https://www.googletagmanager.com/gtag/js?id=G-B0NWQ0XHJQ&l=dataLayer&cx=c">
+  <link rel="preload" as="script" href="https://www.googletagmanager.com/gtm.js?id=GTM-PLLNPWK">
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v20.3 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>25 Days of Christmas Bonuses</title>
+	<meta name="description" content="Oshi presents their brand new Xmas Calendar! They have prepared 25 unique bonuses for their players, from 1st do 25th of December!" />
+	<link rel="canonical" href="https://gamblineers.com/oshi-promo/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="25 Days of Christmas Bonuses" />
+	<meta property="og:description" content="Oshi presents their brand new Xmas Calendar! They have prepared 25 unique bonuses for their players, from 1st do 25th of December!" />
+	<meta property="og:url" content="https://gamblineers.com/oshi-promo/" />
+	<meta property="og:site_name" content="Gamblineers" />
+	<meta property="article:publisher" content="https://www.facebook.com/gamblineers" />
+	<meta property="article:modified_time" content="2022-12-19T08:23:06+00:00" />
+	<meta property="og:image" content="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png" />
+	<meta property="og:image:width" content="738" />
+	<meta property="og:image:height" content="418" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@gamblineers" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://gamblineers.com/oshi-promo/","url":"https://gamblineers.com/oshi-promo/","name":"25 Days of Christmas Bonuses","isPartOf":{"@id":"https://gamblineers.com/#website"},"primaryImageOfPage":{"@id":"https://gamblineers.com/oshi-promo/#primaryimage"},"image":{"@id":"https://gamblineers.com/oshi-promo/#primaryimage"},"thumbnailUrl":"https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png","datePublished":"2022-12-09T08:48:37+00:00","dateModified":"2022-12-19T08:23:06+00:00","description":"Oshi presents their brand new Xmas Calendar! They have prepared 25 unique bonuses for their players, from 1st do 25th of December!","breadcrumb":{"@id":"https://gamblineers.com/oshi-promo/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://gamblineers.com/oshi-promo/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://gamblineers.com/oshi-promo/#primaryimage","url":"https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png","contentUrl":"https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png","width":738,"height":418,"caption":"christmas oshi"},{"@type":"BreadcrumbList","@id":"https://gamblineers.com/oshi-promo/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gamblineers.com/"},{"@type":"ListItem","position":2,"name":"25 Days of Christmas Bonuses"}]},{"@type":"WebSite","@id":"https://gamblineers.com/#website","url":"https://gamblineers.com/","name":"Gamblineers","description":"Gamblineers best site","publisher":{"@id":"https://gamblineers.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://gamblineers.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://gamblineers.com/#organization","name":"Gamblineers","url":"https://gamblineers.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://gamblineers.com/#/schema/logo/image/","url":"https://gamblineers.com/wp-content/uploads/2022/09/Gamblineers-organization-logo.png","contentUrl":"https://gamblineers.com/wp-content/uploads/2022/09/Gamblineers-organization-logo.png","width":211,"height":120,"caption":"Gamblineers"},"image":{"@id":"https://gamblineers.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/gamblineers","https://twitter.com/gamblineers"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link data-minify="1" rel='stylesheet' id='table-of-contents-css' href='https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/table-contents.css?ver=1678952092' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='sib-front-css-css' href='https://gamblineers.com/wp-content/cache/min/1/wp-content/plugins/mailin/css/mailin-front.css?ver=1678952092' type='text/css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://gamblineers.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.1' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://gamblineers.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js' defer></script>
+<script type='text/javascript' id='sib-front-js-js-extra'>
+/* <![CDATA[ */
+var sibErrMsg = {"invalidMail":"Please fill out valid email address","requiredField":"Please fill out required fields","invalidDateFormat":"Please fill out valid date format","invalidSMSFormat":"Please fill out valid phone number"};
+var ajax_sib_front_object = {"ajax_url":"https:\/\/gamblineers.com\/wp-admin\/admin-ajax.php","ajax_nonce":"c6455dfab8","flag_url":"https:\/\/gamblineers.com\/wp-content\/plugins\/mailin\/img\/flags\/"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://gamblineers.com/wp-content/cache/min/1/wp-content/plugins/mailin/js/mailin-front.js?ver=1678952092' id='sib-front-js-js' defer></script>
+<link rel="https://api.w.org/" href="https://gamblineers.com/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://gamblineers.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://gamblineers.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.1.1" />
+<link rel="alternate" type="application/json+oembed" href="https://gamblineers.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgamblineers.com%2Foshi-promo%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://gamblineers.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgamblineers.com%2Foshi-promo%2F&#038;format=xml" />
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript"><!--
+function powerpress_pinw(pinw_url){window.open(pinw_url, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+//-->
+</script>
+<link rel="icon" href="https://gamblineers.com/wp-content/uploads/2022/03/cropped-gamblineers-icon-new-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://gamblineers.com/wp-content/uploads/2022/03/cropped-gamblineers-icon-new-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://gamblineers.com/wp-content/uploads/2022/03/cropped-gamblineers-icon-new-180x180.png" />
+<meta name="msapplication-TileImage" content="https://gamblineers.com/wp-content/uploads/2022/03/cropped-gamblineers-icon-new-270x270.png" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style type="text/css">:root {--primary:#E21284;--primary-hover:#6b11c9;--primary-variant:#6b11c9;--primary-variant-hover:#e21284;--secondary:#a711a7;--secondary-hover:#ba16e2;--secondary-variant:#f4f5f8;--secondary-variant-hover:#cfdcf7;--neutral:#545454;--neutral-hover:#e21284;--dark:#303030;--dark-hover:#E21284;--light:#f4f5f8;--light-hover:#e21284;--text-color:#545454;--link-color:#6b11c9;--link-hover-color:#6b11c9;--headings-color:#303030;--font-size-desktop:16px;--font-size-mobile:16px;--h1-desktop:48px;--h1-mobile:34px;--h2-desktop:35px;--h2-mobile:30px;--h3-desktop:24px;--h3-mobile:22px;--h4-desktop:22px;--h4-mobile:20px;--h5-desktop:18px;--h5-mobile:18px;--h6-desktop:16px;--h6-mobile:16px;}</style><link data-minify="1" rel="preload stylesheet" as="style" id="al-fonts-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/fonts.css?ver=1678952092" type="text/css" media="all"><link data-minify="1" rel="preload stylesheet" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/main.css?ver=1678952092" type="text/css" as="style" media="all"><script type="text/javascript">var vars = {"ajax_url": "https://gamblineers.com/wp-admin/admin-ajax.php", sticky: null};</script>  <script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PLLNPWK');</script>
+</head>
+  <body id="scroll-top" class="news-template-default single single-news postid-42783">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLLNPWK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header class="header py-u-md-20 py-o-sm-10 py-o-xs-5 bg-l ps-f">
+  <div class="container px-o-xs-10">
+    <div class="row mx-n5 ai-c jc-sb">
+      <div class="col-u-md-auto col-d-sm px-5 order-u-md-1">
+                  <a href="https://gamblineers.com/" class="header__logo d-f ai-c"><img width="243" height="44" src="https://gamblineers.com/wp-content/uploads/2022/04/Gamblineers-Logo.svg" class="wa mh-100p no-lazy" alt="Gamblineers Logo" decoding="async" /></a>
+              </div>
+
+      <div class="col-auto d-f px-5 order-u-md-3 pr-o-xs-0">
+        <button type="button" class="d-d-sm-n w-u-md-30 w-d-sm-35 h-30 ps-r js-search-header"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.375 7.75024C13.375 8.48892 13.2295 9.22038 12.9468 9.90283C12.6641 10.5853 12.2498 11.2054 11.7275 11.7277C11.2051 12.25 10.585 12.6644 9.90259 12.9471C9.22014 13.2297 8.48869 13.3752 7.75 13.3752C7.01131 13.3752 6.27986 13.2297 5.5974 12.9471C4.91495 12.6644 4.29485 12.25 3.77252 11.7277C3.25019 11.2054 2.83586 10.5853 2.55317 9.90283C2.27049 9.22038 2.125 8.48892 2.125 7.75024C2.125 6.25839 2.71762 4.82766 3.77252 3.77277C4.82741 2.71787 6.25815 2.12524 7.75 2.12524C9.24184 2.12524 10.6726 2.71787 11.7275 3.77277C12.7824 4.82766 13.375 6.25839 13.375 7.75024ZM12.35 13.6752C10.843 14.8452 8.94671 15.3969 7.04725 15.2179C5.14779 15.039 3.38792 14.1429 2.12594 12.712C0.863937 11.2811 0.194687 9.42311 0.254412 7.51618C0.314149 5.60924 1.09837 3.79674 2.44744 2.44768C3.79651 1.09862 5.609 0.314394 7.51594 0.254656C9.42287 0.194928 11.2809 0.864181 12.7118 2.12618C14.1426 3.38817 15.0388 5.14803 15.2176 7.04749C15.3966 8.94694 14.845 10.8432 13.675 12.3502L17.475 16.1502C17.5671 16.2361 17.641 16.3396 17.6923 16.4546C17.7435 16.5696 17.771 16.6937 17.7733 16.8196C17.7755 16.9455 17.7523 17.0705 17.7051 17.1872C17.658 17.304 17.5878 17.41 17.4988 17.499C17.4098 17.5881 17.3038 17.6582 17.187 17.7054C17.0703 17.7525 16.9453 17.7757 16.8194 17.7735C16.6935 17.7712 16.5693 17.7437 16.4544 17.6925C16.3394 17.6412 16.2359 17.5674 16.15 17.4752L12.35 13.6752Z" fill="var(--dark)"/></svg></button>
+
+                  <button type="button" class="header__btn-submenu d-u-sm-n w-d-sm-46 br-b-d-sm-10 js-submenu"><svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.333008 13C0.333008 20.1685 6.16454 26 13.333 26C20.5015 26 26.333 20.1685 26.333 13C26.333 5.83153 20.5015 0 13.333 0C6.16454 0 0.333008 5.83153 0.333008 13ZM1.66395 13C1.66395 6.56555 6.89856 1.33094 13.333 1.33094C19.7675 1.33094 25.0021 6.56555 25.0021 13C25.0021 19.4345 19.7675 24.6691 13.333 24.6691C6.89856 24.6691 1.66395 19.4345 1.66395 13ZM2.8618 13C2.8618 18.7736 7.55937 23.4712 13.333 23.4712C19.1066 23.4712 23.8042 18.7736 23.8042 13C23.8042 7.22636 19.1066 2.52879 13.333 2.52879C7.55937 2.52879 2.8618 7.22636 2.8618 13ZM4.19275 13C4.19275 7.95971 8.29272 3.85974 13.333 3.85974C18.3733 3.85974 22.4733 7.95971 22.4733 13C22.4733 18.0403 18.3733 22.1403 13.333 22.1403C8.29272 22.1403 4.19275 18.0403 4.19275 13ZM10.645 15.2592C10.1578 14.599 9.89496 13.8001 9.8949 12.9796C9.89495 12.1591 10.1578 11.3602 10.6449 10.7C11.1321 10.0398 11.8179 9.55293 12.6018 9.31083C13.3858 9.06874 14.2267 9.08411 15.0013 9.3547C15.7759 9.6253 16.4434 10.1369 16.9061 10.8145C16.9637 10.8986 17.0373 10.9707 17.1228 11.0264C17.2082 11.0821 17.3038 11.1204 17.4041 11.1392C17.5044 11.158 17.6073 11.1568 17.7072 11.1358C17.807 11.1148 17.9017 11.0743 17.9859 11.0167C18.07 10.9591 18.142 10.8854 18.1978 10.8C18.2535 10.7145 18.2918 10.6189 18.3106 10.5187C18.3294 10.4184 18.3282 10.3154 18.3072 10.2156C18.2862 10.1158 18.2457 10.0211 18.1881 9.93691C17.5474 9.00025 16.6278 8.28934 15.56 7.90517V6.78924C15.56 6.58324 15.4781 6.38568 15.3325 6.24001C15.1868 6.09435 14.9892 6.01251 14.7832 6.01251C14.5772 6.01251 14.3797 6.09435 14.234 6.24001C14.0883 6.38568 14.0065 6.58324 14.0065 6.78924V7.59384C13.9162 7.58933 13.8256 7.58642 13.7346 7.58642C13.6434 7.58648 13.5528 7.58876 13.4628 7.59326V6.78924C13.4628 6.58324 13.3809 6.38568 13.2353 6.24001C13.0896 6.09435 12.892 6.01251 12.686 6.01251C12.48 6.01251 12.2825 6.09435 12.1368 6.24001C11.9911 6.38568 11.9093 6.58324 11.9093 6.78924V7.90463C10.8646 8.2805 9.9614 8.96961 9.32291 9.87788C8.68443 10.7862 8.3418 11.8693 8.3418 12.9796C8.3418 14.0898 8.68443 15.173 9.32291 16.0813C9.9614 16.9896 10.8646 17.6787 11.9093 18.0545V19.1699C11.9093 19.3759 11.9911 19.5735 12.1368 19.7192C12.2825 19.8648 12.48 19.9467 12.686 19.9467C12.892 19.9467 13.0896 19.8648 13.2353 19.7192C13.3809 19.5735 13.4628 19.3759 13.4628 19.1699V18.3659C13.5528 18.3704 13.6437 18.3728 13.7346 18.3728C13.8256 18.3728 13.9162 18.3699 14.0065 18.3653V19.1697C14.0065 19.3757 14.0883 19.5733 14.234 19.719C14.3797 19.8646 14.5772 19.9465 14.7832 19.9465C14.9892 19.9465 15.1868 19.8646 15.3325 19.719C15.4781 19.5733 15.56 19.3757 15.56 19.1697V18.0538C16.6278 17.6697 17.5474 16.9587 18.188 16.0221C18.3033 15.852 18.3465 15.6433 18.3082 15.4415C18.2699 15.2397 18.1533 15.0613 17.9837 14.9453C17.8142 14.8293 17.6057 14.7851 17.4037 14.8225C17.2017 14.8599 17.0228 14.9758 16.906 15.1448C16.4434 15.8223 15.7758 16.3339 15.0012 16.6045C14.2267 16.875 13.3858 16.8904 12.6018 16.6483C11.8179 16.4062 11.1321 15.9194 10.645 15.2592Z" fill="white"/></svg></button>
+          <button type="button" class="d-u-md-n ml-d-sm-4 w-d-sm-35 h-40 ps-r js-main-menu">
+            <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.333008 1.83333C0.333008 1.3471 0.526162 0.880788 0.869979 0.536971C1.2138 0.193155 1.68011 0 2.16634 0H24.1663C24.6526 0 25.1189 0.193155 25.4627 0.536971C25.8065 0.880788 25.9997 1.3471 25.9997 1.83333C25.9997 2.31956 25.8065 2.78588 25.4627 3.1297C25.1189 3.47351 24.6526 3.66667 24.1663 3.66667H2.16634C1.68011 3.66667 1.2138 3.47351 0.869979 3.1297C0.526162 2.78588 0.333008 2.31956 0.333008 1.83333ZM0.333008 11C0.333008 10.5138 0.526162 10.0475 0.869979 9.70364C1.2138 9.35982 1.68011 9.16667 2.16634 9.16667H24.1663C24.6526 9.16667 25.1189 9.35982 25.4627 9.70364C25.8065 10.0475 25.9997 10.5138 25.9997 11C25.9997 11.4862 25.8065 11.9525 25.4627 12.2964C25.1189 12.6402 24.6526 12.8333 24.1663 12.8333H2.16634C1.68011 12.8333 1.2138 12.6402 0.869979 12.2964C0.526162 11.9525 0.333008 11.4862 0.333008 11ZM11.333 20.1667C11.333 19.6804 11.5262 19.2141 11.87 18.8703C12.2138 18.5265 12.6801 18.3333 13.1663 18.3333H24.1663C24.6526 18.3333 25.1189 18.5265 25.4627 18.8703C25.8065 19.2141 25.9997 19.6804 25.9997 20.1667C25.9997 20.6529 25.8065 21.1192 25.4627 21.463C25.1189 21.8068 24.6526 22 24.1663 22H13.1663C12.6801 22 12.2138 21.8068 11.87 21.463C11.5262 21.1192 11.333 20.6529 11.333 20.1667Z" fill="#303030"/></svg>
+          </button>
+              </div>
+
+              <div class="col-u-md-auto header__nav d-d-sm-n of-d-sm-a px-5 mt-o-xs-10 order-u-md-2">
+          <link rel="preload stylesheet" as="style" id="al-search-form-css"  class="assets-lazy-style" data-href="https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/styles/search-form.css" type="text/css" media="all">
+<div class="sf d-n py-u-md-25 pt-d-sm-15 pb-d-sm-5 of-h bg-u-sm-w js-defer-html">
+  <div class="container">
+    <form action="https://gamblineers.com/" class="sf__form row-u-sm mx-n5">
+      <div class="col-u-sm px-5 ps-r">
+        <button type="submit" class="d-u-sm-n"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.375 7.75024C13.375 8.48892 13.2295 9.22038 12.9468 9.90283C12.6641 10.5853 12.2498 11.2054 11.7275 11.7277C11.2051 12.25 10.585 12.6644 9.90259 12.9471C9.22014 13.2297 8.48869 13.3752 7.75 13.3752C7.01131 13.3752 6.27986 13.2297 5.5974 12.9471C4.91495 12.6644 4.29485 12.25 3.77252 11.7277C3.25019 11.2054 2.83586 10.5853 2.55317 9.90283C2.27049 9.22038 2.125 8.48892 2.125 7.75024C2.125 6.25839 2.71762 4.82766 3.77252 3.77277C4.82741 2.71787 6.25815 2.12524 7.75 2.12524C9.24184 2.12524 10.6726 2.71787 11.7275 3.77277C12.7824 4.82766 13.375 6.25839 13.375 7.75024ZM12.35 13.6752C10.843 14.8452 8.94671 15.3969 7.04725 15.2179C5.14779 15.039 3.38792 14.1429 2.12594 12.712C0.863937 11.2811 0.194687 9.42311 0.254412 7.51618C0.314149 5.60924 1.09837 3.79674 2.44744 2.44768C3.79651 1.09862 5.609 0.314394 7.51594 0.254656C9.42287 0.194928 11.2809 0.864181 12.7118 2.12618C14.1426 3.38817 15.0388 5.14803 15.2176 7.04749C15.3966 8.94694 14.845 10.8432 13.675 12.3502L17.475 16.1502C17.5671 16.2361 17.641 16.3396 17.6923 16.4546C17.7435 16.5696 17.771 16.6937 17.7733 16.8196C17.7755 16.9455 17.7523 17.0705 17.7051 17.1872C17.658 17.304 17.5878 17.41 17.4988 17.499C17.4098 17.5881 17.3038 17.6582 17.187 17.7054C17.0703 17.7525 16.9453 17.7757 16.8194 17.7735C16.6935 17.7712 16.5693 17.7437 16.4544 17.6925C16.3394 17.6412 16.2359 17.5674 16.15 17.4752L12.35 13.6752Z" fill="var(--dark)"/></svg></button>
+        <input name="s" autocomplete="off" placeholder="Search for casinos, games, bonuses" class="w-100p tc-d px-u-sm-20 pl-o-xs-50 pr-o-xs-12 br-p">
+      </div>
+
+      <div class="col-u-sm-auto d-o-xs-n px-5">
+        <button type="submit" class="btn btn--p d-o-xs-n tc-w fs-u-sm-20 fw-u-md-bl w-u-sm-200">Search</button>
+      </div>
+    </form>
+
+    <div>
+  <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:auto;margin-right:auto;display:none;background:0 0" width="51" height="51" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="mt-30 js-loader"><circle cx="50" cy="50" r="37.741" fill="none" stroke="var(--primary)" stroke-width="2"><animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;51" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="-0.5s"/><animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline" begin="-0.5s"/></circle><circle cx="50" cy="50" r="10.315" fill="none" stroke="var(--primary-variant)" stroke-width="2"><animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;51" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline"/><animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline"/></circle></svg>
+  <div class="js-search-results sf__sg mt-15 px-u-sm-25 px-o-xs-10 py-u-sm-15 py-o-xs-5 bg-l br-10" style="display: none"></div>
+</div>
+  </div>
+</div>
+          <ul id="menu-primary-navigation" class="primary-nav d-u-md-f fw-m pb-d-sm-20"><li id="menu-item-906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-906 has-sub-menu"><a data-title="Casinos">Casinos</a>
+<ul class="sub-menu">
+	<li id="menu-item-39973" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39973 has-sub-menu"><a data-title="Crypto Casinos by Country">Crypto Casinos by Country</a>
+	<ul class="sub-menu">
+		<li id="menu-item-39978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39978"><a href="https://gamblineers.com/australia-crypto-guide/" data-title="Australia">Australia</a></li>
+		<li id="menu-item-39977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39977"><a href="https://gamblineers.com/canada-crypto-guide/" data-title="Canada">Canada</a></li>
+		<li id="menu-item-39976" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39976"><a href="https://gamblineers.com/germany-crypto-guide/" data-title="Germany">Germany</a></li>
+		<li id="menu-item-39979" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39979"><a href="https://gamblineers.com/nz-crypto-guide/" data-title="New Zealand">New Zealand</a></li>
+		<li id="menu-item-39975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39975"><a href="https://gamblineers.com/uk-crypto-guide/" data-title="UK">UK</a></li>
+		<li id="menu-item-39974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39974"><a href="https://gamblineers.com/us-crypto-guide/" data-title="USA">USA</a></li>
+	</ul>
+</li>
+	<li id="menu-item-42042" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42042"><a href="https://gamblineers.com/altcoin-casinos/" data-title="Altcoin Casinos">Altcoin Casinos</a></li>
+	<li id="menu-item-41883" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41883"><a href="https://gamblineers.com/stablecoin-casinos/" data-title="Stablecoin Casinos">Stablecoin Casinos</a></li>
+	<li id="menu-item-44112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44112"><a href="https://gamblineers.com/high-roller-casinos/" data-title="High Roller Crypto Casinos">High Roller Crypto Casinos</a></li>
+	<li id="menu-item-39981" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39981"><a href="https://gamblineers.com/#provably-fair" data-title="Provably Fair Casinos">Provably Fair Casinos</a></li>
+	<li id="menu-item-39982" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39982"><a href="https://gamblineers.com/anonymous-bitcoin-casinos/" data-title="Anonymous Casinos">Anonymous Casinos</a></li>
+	<li id="menu-item-43505" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43505"><a href="https://gamblineers.com/bitcoin-live-casinos/" data-title="Bitcoin Live Casinos">Bitcoin Live Casinos</a></li>
+	<li id="menu-item-39983" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-39983"><a href="https://gamblineers.com/#mobile" data-title="Mobile Casinos">Mobile Casinos</a></li>
+	<li id="menu-item-42038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42038"><a href="https://gamblineers.com/new-bitcoin-casinos/" data-title="New Bitcoin Casinos">New Bitcoin Casinos</a></li>
+	<li id="menu-item-43823" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43823"><a href="https://gamblineers.com/bitcoin-casino-credit-card/" data-title="Credit Card Bitcoin Casinos">Credit Card Bitcoin Casinos</a></li>
+	<li id="menu-item-39986" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39986 has-sub-menu"><a data-title="Minimum Deposit Casinos">Minimum Deposit Casinos</a>
+	<ul class="sub-menu">
+		<li id="menu-item-43559" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43559"><a href="https://gamblineers.com/minimum-deposit-bitcoin-casino/" data-title="Bitcoin">Bitcoin</a></li>
+		<li id="menu-item-39987" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39987 has-sub-menu"><a data-title="$/€/£ 1">$/€/£ 1</a>
+		<ul class="sub-menu">
+			<li id="menu-item-39991" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39991"><a href="https://gamblineers.com/1-dollar-deposit-casino/" data-title="$1 Deposit">$1 Deposit</a></li>
+			<li id="menu-item-39995" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39995"><a href="https://gamblineers.com/1-gbp-deposit-casino/" data-title="£1 Deposit">£1 Deposit</a></li>
+			<li id="menu-item-39999" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39999"><a href="https://gamblineers.com/1-eur-deposit-casino/" data-title="1€ Deposit">1€ Deposit</a></li>
+		</ul>
+</li>
+		<li id="menu-item-39988" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39988 has-sub-menu"><a data-title="$/€/£ 3">$/€/£ 3</a>
+		<ul class="sub-menu">
+			<li id="menu-item-39993" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39993"><a href="https://gamblineers.com/3-dollar-deposit-casino/" data-title="$3 Deposit">$3 Deposit</a></li>
+			<li id="menu-item-39997" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39997"><a href="https://gamblineers.com/3-gbp-deposit-casino/" data-title="£3 Deposit">£3 Deposit</a></li>
+			<li id="menu-item-40001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40001"><a href="https://gamblineers.com/3-eur-deposit-casino/" data-title="3€ Deposit">3€ Deposit</a></li>
+		</ul>
+</li>
+		<li id="menu-item-39989" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39989 has-sub-menu"><a data-title="$/€/£ 5">$/€/£ 5</a>
+		<ul class="sub-menu">
+			<li id="menu-item-39994" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39994"><a href="https://gamblineers.com/5-dollar-deposit-casino/" data-title="$5 Deposit">$5 Deposit</a></li>
+			<li id="menu-item-39998" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39998"><a href="https://gamblineers.com/5-gbp-deposit-casino/" data-title="£5 Deposit">£5 Deposit</a></li>
+			<li id="menu-item-40002" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40002"><a href="https://gamblineers.com/5-eur-deposit-casino/" data-title="5€ Deposit">5€ Deposit</a></li>
+		</ul>
+</li>
+		<li id="menu-item-39990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39990 has-sub-menu"><a data-title="$/€/£ 10">$/€/£ 10</a>
+		<ul class="sub-menu">
+			<li id="menu-item-39992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39992"><a href="https://gamblineers.com/10-dollar-deposit-casino/" data-title="$10 Deposit">$10 Deposit</a></li>
+			<li id="menu-item-39996" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39996"><a href="https://gamblineers.com/10-gbp-deposit-casino/" data-title="£10 Deposit">£10 Deposit</a></li>
+			<li id="menu-item-40000" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40000"><a href="https://gamblineers.com/10-eur-deposit-casino/" data-title="10€ Deposit">10€ Deposit</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-36744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36744"><a href="https://gamblineers.com/crypto-casino-reviews/" data-title="Reviews">Reviews</a></li>
+<li id="menu-item-907" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-907 has-sub-menu"><a data-title="Games">Games</a>
+<ul class="sub-menu">
+	<li id="menu-item-33025" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-33025"><a href="https://gamblineers.com/bitcoin-crash/" data-title="Crash">Crash</a></li>
+	<li id="menu-item-37172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37172"><a href="https://gamblineers.com/bitcoin-dice/" data-title="Dice">Dice</a></li>
+	<li id="menu-item-40008" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40008"><a href="https://gamblineers.com/bitcoin-plinko/" data-title="Plinko">Plinko</a></li>
+	<li id="menu-item-43094" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43094"><a href="https://gamblineers.com/bitcoin-table-games/" data-title="Table Games">Table Games</a></li>
+	<li id="menu-item-37175" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37175"><a href="https://gamblineers.com/bitcoin-poker-sites/" data-title="Poker">Poker</a></li>
+	<li id="menu-item-37174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37174"><a href="https://gamblineers.com/bitcoin-roulette/" data-title="Roulette">Roulette</a></li>
+	<li id="menu-item-44721" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44721"><a href="https://gamblineers.com/bitcoin-baccarat/" data-title="Bitcoin Baccarat">Bitcoin Baccarat</a></li>
+	<li id="menu-item-37173" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-37173 has-sub-menu"><a data-title="Slots">Slots</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40007" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40007"><a href="https://gamblineers.com/bitcoin-slots/" data-title="Slots Guide">Slots Guide</a></li>
+		<li id="menu-item-40003" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40003"><a href="https://gamblineers.com/bonus-buy-bitcoin-slots/" data-title="Bonus Buy">Bonus Buy</a></li>
+		<li id="menu-item-40004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40004"><a href="https://gamblineers.com/megaways-slots/" data-title="Megaways">Megaways</a></li>
+		<li id="menu-item-40005" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40005"><a href="https://gamblineers.com/progressive-bitcoin-slots/" data-title="Progressive">Progressive</a></li>
+		<li id="menu-item-40006" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40006"><a href="https://gamblineers.com/provably-fair-bitcoin-slots/" data-title="Provably Fair">Provably Fair</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-40009" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-40009 has-sub-menu"><a data-title="Bonuses">Bonuses</a>
+<ul class="sub-menu">
+	<li id="menu-item-40010" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40010"><a href="https://gamblineers.com/bitcoin-casino-bonuses/" data-title="Casino Bonus Guide">Casino Bonus Guide</a></li>
+	<li id="menu-item-42903" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42903"><a href="https://gamblineers.com/bitcoin-casino-bonuses/#free-spins" data-title="No Deposit Bonuses">No Deposit Bonuses</a></li>
+	<li id="menu-item-40012" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40012"><a href="https://gamblineers.com/GCODE/" data-title="GCODE">GCODE</a></li>
+	<li id="menu-item-42904" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42904"><a href="https://gamblineers.com/bitcoin-casino-bonuses/#first-deposit" data-title="First Deposit Bonuses">First Deposit Bonuses</a></li>
+	<li id="menu-item-42906" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42906"><a href="https://gamblineers.com/bitcoin-casino-bonuses/#bonus-codes" data-title="Bonus Codes">Bonus Codes</a></li>
+	<li id="menu-item-42905" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42905"><a href="https://gamblineers.com/bitcoin-casino-bonuses/#faucet" data-title="Faucets">Faucets</a></li>
+</ul>
+</li>
+<li id="menu-item-36745" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36745 has-sub-menu"><a data-title="Sports &amp; Other">Sports &#038; Other</a>
+<ul class="sub-menu">
+	<li id="menu-item-40016" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40016"><a href="https://gamblineers.com/bitcoin-betting-sites/" data-title="Sports Betting">Sports Betting</a></li>
+	<li id="menu-item-40019" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-40019 has-sub-menu"><a data-title="eSports Betting">eSports Betting</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40017" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40017"><a href="https://gamblineers.com/bitcoin-esports/" data-title="eSports Guide">eSports Guide</a></li>
+		<li id="menu-item-40018" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40018"><a href="https://gamblineers.com/bitcoin-esports-bonuses/" data-title="eSports Bonuses">eSports Bonuses</a></li>
+		<li id="menu-item-40015" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40015"><a href="https://gamblineers.com/csgo/" data-title="CS:GO">CS:GO</a></li>
+		<li id="menu-item-40013" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40013"><a href="https://gamblineers.com/league-of-legends/" data-title="League of Legends">League of Legends</a></li>
+		<li id="menu-item-40014" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40014"><a href="https://gamblineers.com/dota2/" data-title="DOTA 2">DOTA 2</a></li>
+	</ul>
+</li>
+	<li id="menu-item-43560" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43560"><a href="https://gamblineers.com/crypto-lottery/" data-title="Crypto Lottery">Crypto Lottery</a></li>
+	<li id="menu-item-44113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44113"><a href="https://gamblineers.com/bitcoin-scratch-cards/" data-title="Bitcoin Scratch Cards">Bitcoin Scratch Cards</a></li>
+</ul>
+</li>
+<li id="menu-item-36746" class="header-sub-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36746"><a data-title="Altcoins">Altcoins</a>
+<ul class="sub-menu">
+	<li id="menu-item-36747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36747 has-sub-menu"><a data-title="A">A</a>
+	<ul class="sub-menu">
+		<li id="menu-item-37614" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37614 menu-item-has-icon"><a href="https://gamblineers.com/aave-casinos/" data-title="Aave Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Aave Casinos</span></a></li>
+		<li id="menu-item-37615" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37615 menu-item-has-icon"><a href="https://gamblineers.com/amp-casinos/" data-title="AMP Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>AMP Casinos</span></a></li>
+		<li id="menu-item-37616" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37616 menu-item-has-icon"><a href="https://gamblineers.com/avalanche-casinos/" data-title="Avalanche Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Avalanche Casinos</span></a></li>
+		<li id="menu-item-37617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37617 menu-item-has-icon"><a href="https://gamblineers.com/axie-infinity-casinos/" data-title="Axie Infinity Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Axie Infinity Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36767" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36767 has-sub-menu"><a data-title="B">B</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40021" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40021 menu-item-has-icon"><a href="https://gamblineers.com/basic-attention-token-casinos/" data-title="Basic Attention Token Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Basic Attention Token Casinos</span></a></li>
+		<li id="menu-item-40022" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40022 menu-item-has-icon"><a href="https://gamblineers.com/binance-coin-casinos/" data-title="Binance Coin Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Binance Coin Casinos</span></a></li>
+		<li id="menu-item-40023" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40023 menu-item-has-icon"><a href="https://gamblineers.com/binance-usd-casinos/" data-title="Binance USD Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Binance USD Casinos</span></a></li>
+		<li id="menu-item-40020" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-40020 menu-item-has-icon"><a href="https://gamblineers.com/" data-title="Bitcoin Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Bitcoin Casinos</span></a></li>
+		<li id="menu-item-40024" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40024 menu-item-has-icon"><a href="https://gamblineers.com/bitcoin-cash-casinos/" data-title="Bitcoin Cash Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Bitcoin Cash Casinos</span></a></li>
+		<li id="menu-item-40025" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40025 menu-item-has-icon"><a href="https://gamblineers.com/bitcoin-gold-casinos/" data-title="Bitcoin Gold Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Bitcoin Gold Casinos</span></a></li>
+		<li id="menu-item-40026" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40026 menu-item-has-icon"><a href="https://gamblineers.com/bitcoin-sv-casinos/" data-title="Bitcoin SV Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Bitcoin SV Casinos</span></a></li>
+		<li id="menu-item-40027" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40027 menu-item-has-icon"><a href="https://gamblineers.com/bittorrent-casinos/" data-title="BitTorrent Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>BitTorrent Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36770" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36770 has-sub-menu"><a data-title="C">C</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40030" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40030 menu-item-has-icon"><a href="https://gamblineers.com/cardano-casinos/" data-title="Cardano Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Cardano Casinos</span></a></li>
+		<li id="menu-item-40031" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40031 menu-item-has-icon"><a href="https://gamblineers.com/chainlink-casinos/" data-title="Chainlink Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Chainlink Casinos</span></a></li>
+		<li id="menu-item-42157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42157 menu-item-has-icon"><a href="https://gamblineers.com/cosmos-casinos/" data-title="Cosmos Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Cosmos Casinos</span></a></li>
+		<li id="menu-item-40032" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40032 menu-item-has-icon"><a href="https://gamblineers.com/cronos-casinos/" data-title="Cronos Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Cronos Casinos</span></a></li>
+		<li id="menu-item-40033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40033 menu-item-has-icon"><a href="https://gamblineers.com/curve-dao-casinos/" data-title="Curve DAO Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Curve DAO Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36800" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36800 has-sub-menu"><a data-title="D">D</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40035" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40035 menu-item-has-icon"><a href="https://gamblineers.com/dai-casinos/" data-title="Dai Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Dai Casinos</span></a></li>
+		<li id="menu-item-40036" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40036 menu-item-has-icon"><a href="https://gamblineers.com/dash-casinos/" data-title="Dash Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Dash Casinos</span></a></li>
+		<li id="menu-item-40037" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40037 menu-item-has-icon"><a href="https://gamblineers.com/decentraland-casinos/" data-title="Decentraland Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Decentraland Casinos</span></a></li>
+		<li id="menu-item-40038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40038 menu-item-has-icon"><a href="https://gamblineers.com/dogecoin-casinos/" data-title="Dogecoin Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Dogecoin Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36801 has-sub-menu"><a data-title="E">E</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40039 menu-item-has-icon"><a href="https://gamblineers.com/enjin-casinos/" data-title="Enjin Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Enjin Casinos</span></a></li>
+		<li id="menu-item-40040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40040 menu-item-has-icon"><a href="https://gamblineers.com/eos-casinos/" data-title="EOS Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>EOS Casinos</span></a></li>
+		<li id="menu-item-40041" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40041 menu-item-has-icon"><a href="https://gamblineers.com/ethereum-gambling/" data-title="Ethereum Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Ethereum Casinos</span></a></li>
+		<li id="menu-item-43451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43451 menu-item-has-icon"><a href="https://gamblineers.com/ethereum-classic-casinos/" data-title="Ethereum Classic Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Ethereum Classic Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-38673" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38673"><a data-title="F">F</a></li>
+	<li id="menu-item-36802" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36802 has-sub-menu"><a data-title="G">G</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40042" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40042 menu-item-has-icon"><a href="https://gamblineers.com/gala-casinos/" data-title="Gala Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Gala Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-38675" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38675 has-sub-menu"><a data-title="H">H</a>
+	<ul class="sub-menu">
+		<li id="menu-item-44717" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44717 menu-item-has-icon"><a href="https://gamblineers.com/hedera-casinos/" data-title="Hedera Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Hedera Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-38676" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38676"><a data-title="I">I</a></li>
+	<li id="menu-item-38674" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38674"><a data-title="J">J</a></li>
+	<li id="menu-item-36803" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36803 has-sub-menu"><a data-title="K">K</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40043" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40043 menu-item-has-icon"><a href="https://gamblineers.com/kusama-casinos/" data-title="Kusama Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Kusama Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36804" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36804 has-sub-menu"><a data-title="L">L</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40045" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40045 menu-item-has-icon"><a href="https://gamblineers.com/litecoin-casinos/" data-title="Litecoin Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Litecoin Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36805" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36805 has-sub-menu"><a data-title="M">M</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40046" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40046 menu-item-has-icon"><a href="https://gamblineers.com/monero-casinos/" data-title="Monero Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Monero Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36806" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36806 has-sub-menu"><a data-title="N">N</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40047" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40047 menu-item-has-icon"><a href="https://gamblineers.com/near-protocol-casinos/" data-title="NEAR Protocol Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>NEAR Protocol Casinos</span></a></li>
+		<li id="menu-item-40048" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40048 menu-item-has-icon"><a href="https://gamblineers.com/nem-casinos/" data-title="NEM Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>NEM Casinos</span></a></li>
+		<li id="menu-item-40049" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40049 menu-item-has-icon"><a href="https://gamblineers.com/neo-casinos/" data-title="Neo Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Neo Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36807" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36807 has-sub-menu"><a data-title="O">O</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40050" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40050 menu-item-has-icon"><a href="https://gamblineers.com/omisego-casinos/" data-title="OmiseGO Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>OmiseGO Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36808" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36808 has-sub-menu"><a data-title="P">P</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40051" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40051 menu-item-has-icon"><a href="https://gamblineers.com/pancakeswap-casinos/" data-title="PancakeSwap Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>PancakeSwap Casinos</span></a></li>
+		<li id="menu-item-40052" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40052 menu-item-has-icon"><a href="https://gamblineers.com/polkadot-casinos/" data-title="Polkadot Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Polkadot Casinos</span></a></li>
+		<li id="menu-item-40053" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40053 menu-item-has-icon"><a href="https://gamblineers.com/polygon-casinos/" data-title="Polygon Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Polygon Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36809" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36809 has-sub-menu"><a data-title="Q">Q</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40054" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40054 menu-item-has-icon"><a href="https://gamblineers.com/qtum-casinos/" data-title="Qtum Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Qtum Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36810" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36810 has-sub-menu"><a data-title="R">R</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40055 menu-item-has-icon"><a href="https://gamblineers.com/ripple-casinos/" data-title="Ripple Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Ripple Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36811" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36811 has-sub-menu"><a data-title="S">S</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40056" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40056 menu-item-has-icon"><a href="https://gamblineers.com/sandbox-casinos/" data-title="Sandbox Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Sandbox Casinos</span></a></li>
+		<li id="menu-item-40057" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40057 menu-item-has-icon"><a href="https://gamblineers.com/shiba-inu-casinos/" data-title="Shiba Inu Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Shiba Inu Casinos</span></a></li>
+		<li id="menu-item-40058" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40058 menu-item-has-icon"><a href="https://gamblineers.com/solana-casinos/" data-title="Solana Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Solana Casinos</span></a></li>
+		<li id="menu-item-40059" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40059 menu-item-has-icon"><a href="https://gamblineers.com/stellar-casinos/" data-title="Stellar Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Stellar Casinos</span></a></li>
+		<li id="menu-item-40060" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40060 menu-item-has-icon"><a href="https://gamblineers.com/sushiswap-casinos/" data-title="Sushiswap Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Sushiswap Casinos</span></a></li>
+		<li id="menu-item-40061" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40061 menu-item-has-icon"><a href="https://gamblineers.com/synthetix-casinos/" data-title="Synthetix Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Synthetix Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36812" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36812 has-sub-menu"><a data-title="T">T</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40062" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40062 menu-item-has-icon"><a href="https://gamblineers.com/terra-casinos/" data-title="Terra Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Terra Casinos</span></a></li>
+		<li id="menu-item-40063" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40063 menu-item-has-icon"><a href="https://gamblineers.com/tether-gambling/" data-title="Tether Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Tether Casinos</span></a></li>
+		<li id="menu-item-40064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40064 menu-item-has-icon"><a href="https://gamblineers.com/tron-casinos/" data-title="Tron Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Tron Casinos</span></a></li>
+		<li id="menu-item-40065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40065 menu-item-has-icon"><a href="https://gamblineers.com/true-usd-casinos/" data-title="True USD Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>True USD Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36813" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36813 has-sub-menu"><a data-title="U">U</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40066" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40066 menu-item-has-icon"><a href="https://gamblineers.com/uniswap-casinos/" data-title="Uniswap Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Uniswap Casinos</span></a></li>
+		<li id="menu-item-40067" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40067 menu-item-has-icon"><a href="https://gamblineers.com/usd-coin-casinos/" data-title="USD Coin Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>USD Coin Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-38677" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38677"><a data-title="V">V</a></li>
+	<li id="menu-item-36814" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36814 has-sub-menu"><a data-title="W">W</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40068" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40068 menu-item-has-icon"><a href="https://gamblineers.com/wrapped-bitcoin-casinos/" data-title="Wrapped Bitcoin Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Wrapped Bitcoin Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-38678" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38678"><a data-title="X">X</a></li>
+	<li id="menu-item-36815" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36815 has-sub-menu"><a data-title="Y">Y</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40069" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40069 menu-item-has-icon"><a href="https://gamblineers.com/yearn-finance-casinos/" data-title="Yearn.finance Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Yearn.finance Casinos</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-36816" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36816 has-sub-menu"><a data-title="Z">Z</a>
+	<ul class="sub-menu">
+		<li id="menu-item-40070" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40070 menu-item-has-icon"><a href="https://gamblineers.com/zcash-casinos/" data-title="Zcash Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Zcash Casinos</span></a></li>
+		<li id="menu-item-40071" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40071 menu-item-has-icon"><a href="https://gamblineers.com/zilliqa-casinos/" data-title="Zilliqa Casinos"><span class="menu-item-icon"><img width="16" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Altcoin icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" /><noscript><img width="16" height="16" src="https://gamblineers.com/wp-content/uploads/2022/05/menu-icon.svg" class="attachment-full size-full" alt="Altcoin icon" decoding="async" /></noscript></span><span>Zilliqa Casinos</span></a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-36751" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36751 has-sub-menu"><a data-title="More">More</a>
+<ul class="sub-menu">
+	<li id="menu-item-40072" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40072"><a href="https://gamblineers.com/about/">About</a></li>
+	<li id="menu-item-40073" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40073"><a href="https://gamblineers.com/blog/">Blog</a></li>
+	<li id="menu-item-40074" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40074"><a href="https://gamblineers.com/responsible-gambling/" data-title="Responsible Gaming">Responsible Gaming</a></li>
+	<li id="menu-item-44756" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44756"><a href="https://gamblineers.com/beginners-guide/" data-title="How to Buy &amp; Deposit Bitcoin">How to Buy &#038; Deposit Bitcoin</a></li>
+</ul>
+</li>
+</ul>        </div>
+          </div>
+  </div>
+</header><link data-minify="1" rel="preload stylesheet" as="style" id="al-news-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/news.css?ver=1678953026" type="text/css" media="all"><link data-minify="1" rel="preload stylesheet" as="style" id="al-sidebar-section-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/sidebar-section.css?ver=1678952303" type="text/css" media="all"><article>
+  <header class="nh pt-20">
+  <div class="breadcrumbs pb-10 fs-11">
+  <div class="container">
+    <div class="breadcrumbs__list d-f f-w">
+      <!-- Breadcrumb NavXT 7.2.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Gamblineers." href="https://gamblineers.com" class="home" ><span property="name">Gamblineers</span></a><meta property="position" content="1"></span><span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Blog." href="https://gamblineers.com/blog/" class="news-root post post-news" ><span property="name">Blog</span></a><meta property="position" content="2"></span><span property="itemListElement" typeof="ListItem"><span property="name" class="post post-news current-item">25 Days of Christmas Bonuses</span><meta property="url" content="https://gamblineers.com/oshi-promo/"><meta property="position" content="3"></span>    </div>
+  </div>
+</div>
+  <div class="container pt-u-sm-20 pb-d-sm-20">
+    <div class="row-u-md jc-u-lg-sb">
+      <div class="col-u-lg-7 col-o-md ta-o-xs-c pr-u-lg-60">
+        <h1 class="mb-15">
+          25 Days of Christmas Bonuses                    <span class="d-b tc-n fs-u-sm-24 fs-o-xs-20 fw-m mt-10">at Oshi Casino</span>
+                  </h1>
+
+        <p class="d-f ai-c jc-o-xs-c mb-20 fs-12">
+          <svg class="mr-5" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.48309 1.48309C2.41715 0.549037 3.67915 0.0168446 5 0C6.32085 0.0168446 7.58285 0.549037 8.51691 1.48309C9.45096 2.41715 9.98316 3.67915 10 5C9.99383 5.76946 9.81014 6.52711 9.46324 7.21396C9.11635 7.90081 8.6156 8.49833 8 8.96V9H7.95C7.10341 9.64874 6.06658 10.0003 5 10.0003C3.93342 10.0003 2.89659 9.64874 2.05 9H2V8.96C1.3844 8.49833 0.883651 7.90081 0.536756 7.21396C0.18986 6.52711 0.00617444 5.76946 0 5C0.0168446 3.67915 0.549037 2.41715 1.48309 1.48309ZM3.55954 7.61681C3.29308 7.83144 3.10799 8.13072 3.035 8.465C3.63057 8.8154 4.309 9.00018 5 9.00018C5.691 9.00018 6.36943 8.8154 6.965 8.465C6.89201 8.13072 6.70692 7.83144 6.44046 7.61681C6.17399 7.40219 5.84215 7.28511 5.5 7.285H4.5C4.15785 7.28511 3.82601 7.40219 3.55954 7.61681ZM6.88446 6.70418C7.29456 6.97728 7.61481 7.36547 7.805 7.82C8.17967 7.45149 8.47805 7.01277 8.68309 6.5289C8.88814 6.04503 8.99582 5.5255 9 5C8.98703 3.94316 8.56144 2.93327 7.81409 2.18591C7.06673 1.43856 6.05684 1.01297 5 1C3.94316 1.01297 2.93327 1.43856 2.18591 2.18591C1.43856 2.93327 1.01297 3.94316 1 5C1.00418 5.5255 1.11186 6.04503 1.31691 6.5289C1.52195 7.01277 1.82033 7.45149 2.195 7.82C2.38519 7.36547 2.70544 6.97728 3.11554 6.70418C3.52564 6.43108 4.00729 6.28525 4.5 6.285H5.5C5.99271 6.28525 6.47436 6.43108 6.88446 6.70418ZM4.22741 2.13971C4.47284 2.04138 4.73567 1.99385 5 2.00001C5.26433 1.99385 5.52716 2.04138 5.77259 2.13971C6.01803 2.23804 6.24097 2.38513 6.42792 2.57209C6.61488 2.75905 6.76198 2.98198 6.8603 3.22742C6.95863 3.47285 7.00616 3.73568 7 4.00001C7.00616 4.26434 6.95863 4.52717 6.8603 4.7726C6.76198 5.01804 6.61488 5.24098 6.42792 5.42794C6.24097 5.61489 6.01803 5.76199 5.77259 5.86032C5.52716 5.95865 5.26433 6.00617 5 6.00001C4.73567 6.00617 4.47284 5.95865 4.22741 5.86032C3.98197 5.76199 3.75903 5.61489 3.57208 5.42794C3.38512 5.24098 3.23802 5.01804 3.1397 4.7726C3.04137 4.52717 2.99384 4.26434 3 4.00001C2.99384 3.73568 3.04137 3.47285 3.1397 3.22742C3.23802 2.98198 3.38512 2.75905 3.57208 2.57209C3.75903 2.38513 3.98197 2.23804 4.22741 2.13971ZM4.60984 4.937C4.73408 4.98498 4.86697 5.00644 5 5.00001C5.13303 5.00644 5.26592 4.98498 5.39016 4.937C5.5144 4.88902 5.62723 4.81559 5.7214 4.72141C5.81557 4.62724 5.88901 4.51441 5.93699 4.39017C5.98497 4.26594 6.00643 4.13304 6 4.00001C6.00643 3.86699 5.98497 3.73409 5.93699 3.60985C5.88901 3.48561 5.81557 3.37278 5.7214 3.27861C5.62723 3.18444 5.5144 3.111 5.39016 3.06302C5.26592 3.01504 5.13303 2.99358 5 3.00001C4.86697 2.99358 4.73408 3.01504 4.60984 3.06302C4.4856 3.111 4.37277 3.18444 4.2786 3.27861C4.18443 3.37278 4.11099 3.48561 4.06301 3.60985C4.01503 3.73409 3.99357 3.86699 4 4.00001C3.99357 4.13304 4.01503 4.26594 4.06301 4.39017C4.11099 4.51441 4.18443 4.62724 4.2786 4.72141C4.37277 4.81559 4.4856 4.88902 4.60984 4.937Z" fill="#545454"/></svg>
+          Jost /
+          <svg class="mx-5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.6 0.799988C3.70609 0.799988 3.80783 0.842131 3.88284 0.917145C3.95786 0.99216 4 1.0939 4 1.19999V1.59999H8V1.19999C8 1.0939 8.04214 0.99216 8.11716 0.917145C8.19217 0.842131 8.29391 0.799988 8.4 0.799988C8.50609 0.799988 8.60783 0.842131 8.68284 0.917145C8.75786 0.99216 8.8 1.0939 8.8 1.19999V1.59999H10C10.3183 1.59999 10.6235 1.72642 10.8485 1.95146C11.0736 2.1765 11.2 2.48173 11.2 2.79999V9.99999C11.2 10.3182 11.0736 10.6235 10.8485 10.8485C10.6235 11.0736 10.3183 11.2 10 11.2H2C1.68174 11.2 1.37652 11.0736 1.15147 10.8485C0.926428 10.6235 0.8 10.3182 0.8 9.99999V2.79999C0.8 2.48173 0.926428 2.1765 1.15147 1.95146C1.37652 1.72642 1.68174 1.59999 2 1.59999H3.2V1.19999C3.2 1.0939 3.24214 0.99216 3.31716 0.917145C3.39217 0.842131 3.49391 0.799988 3.6 0.799988ZM8 2.39999V2.79999C8 2.90607 8.04214 3.00782 8.11716 3.08283C8.19217 3.15784 8.29391 3.19999 8.4 3.19999C8.50609 3.19999 8.60783 3.15784 8.68284 3.08283C8.75786 3.00782 8.8 2.90607 8.8 2.79999V2.39999H10C10.1061 2.39999 10.2078 2.44213 10.2828 2.51715C10.3579 2.59216 10.4 2.6939 10.4 2.79999V3.99999H1.6V2.79999C1.6 2.6939 1.64214 2.59216 1.71716 2.51715C1.79217 2.44213 1.89391 2.39999 2 2.39999H3.2V2.79999C3.2 2.90607 3.24214 3.00782 3.31716 3.08283C3.39217 3.15784 3.49391 3.19999 3.6 3.19999C3.70609 3.19999 3.80783 3.15784 3.88284 3.08283C3.95786 3.00782 4 2.90607 4 2.79999V2.39999H8ZM1.6 4.79999V9.99999C1.6 10.1061 1.64214 10.2078 1.71716 10.2828C1.79217 10.3578 1.89391 10.4 2 10.4H10C10.1061 10.4 10.2078 10.3578 10.2828 10.2828C10.3579 10.2078 10.4 10.1061 10.4 9.99999V4.79999H1.6ZM5.6 5.99999C5.6 5.8939 5.64214 5.79216 5.71716 5.71714C5.79217 5.64213 5.89391 5.59999 6 5.59999C6.10609 5.59999 6.20783 5.64213 6.28284 5.71714C6.35786 5.79216 6.4 5.8939 6.4 5.99999C6.4 6.10607 6.35786 6.20782 6.28284 6.28283C6.20783 6.35784 6.10609 6.39999 6 6.39999C5.89391 6.39999 5.79217 6.35784 5.71716 6.28283C5.64214 6.20782 5.6 6.10607 5.6 5.99999ZM7.6 5.59999C7.49391 5.59999 7.39217 5.64213 7.31716 5.71714C7.24214 5.79216 7.2 5.8939 7.2 5.99999C7.2 6.10607 7.24214 6.20782 7.31716 6.28283C7.39217 6.35784 7.49391 6.39999 7.6 6.39999C7.70609 6.39999 7.80783 6.35784 7.88284 6.28283C7.95786 6.20782 8 6.10607 8 5.99999C8 5.8939 7.95786 5.79216 7.88284 5.71714C7.80783 5.64213 7.70609 5.59999 7.6 5.59999ZM8.8 5.99999C8.8 5.8939 8.84214 5.79216 8.91716 5.71714C8.99217 5.64213 9.09391 5.59999 9.2 5.59999C9.30609 5.59999 9.40783 5.64213 9.48284 5.71714C9.55786 5.79216 9.6 5.8939 9.6 5.99999C9.6 6.10607 9.55786 6.20782 9.48284 6.28283C9.40783 6.35784 9.30609 6.39999 9.2 6.39999C9.09391 6.39999 8.99217 6.35784 8.91716 6.28283C8.84214 6.20782 8.8 6.10607 8.8 5.99999ZM9.2 7.19999C9.09391 7.19999 8.99217 7.24213 8.91716 7.31714C8.84214 7.39216 8.8 7.4939 8.8 7.59999C8.8 7.70607 8.84214 7.80782 8.91716 7.88283C8.99217 7.95784 9.09391 7.99999 9.2 7.99999C9.30609 7.99999 9.40783 7.95784 9.48284 7.88283C9.55786 7.80782 9.6 7.70607 9.6 7.59999C9.6 7.4939 9.55786 7.39216 9.48284 7.31714C9.40783 7.24213 9.30609 7.19999 9.2 7.19999ZM7.2 7.59999C7.2 7.4939 7.24214 7.39216 7.31716 7.31714C7.39217 7.24213 7.49391 7.19999 7.6 7.19999C7.70609 7.19999 7.80783 7.24213 7.88284 7.31714C7.95786 7.39216 8 7.4939 8 7.59999C8 7.70607 7.95786 7.80782 7.88284 7.88283C7.80783 7.95784 7.70609 7.99999 7.6 7.99999C7.49391 7.99999 7.39217 7.95784 7.31716 7.88283C7.24214 7.80782 7.2 7.70607 7.2 7.59999ZM6 7.19999C5.89391 7.19999 5.79217 7.24213 5.71716 7.31714C5.64214 7.39216 5.6 7.4939 5.6 7.59999C5.6 7.70607 5.64214 7.80782 5.71716 7.88283C5.79217 7.95784 5.89391 7.99999 6 7.99999C6.10609 7.99999 6.20783 7.95784 6.28284 7.88283C6.35786 7.80782 6.4 7.70607 6.4 7.59999C6.4 7.4939 6.35786 7.39216 6.28284 7.31714C6.20783 7.24213 6.10609 7.19999 6 7.19999ZM4 7.59999C4 7.4939 4.04214 7.39216 4.11716 7.31714C4.19217 7.24213 4.29391 7.19999 4.4 7.19999C4.50609 7.19999 4.60783 7.24213 4.68284 7.31714C4.75786 7.39216 4.8 7.4939 4.8 7.59999C4.8 7.70607 4.75786 7.80782 4.68284 7.88283C4.60783 7.95784 4.50609 7.99999 4.4 7.99999C4.29391 7.99999 4.19217 7.95784 4.11716 7.88283C4.04214 7.80782 4 7.70607 4 7.59999ZM2.8 7.19999C2.69391 7.19999 2.59217 7.24213 2.51716 7.31714C2.44214 7.39216 2.4 7.4939 2.4 7.59999C2.4 7.70607 2.44214 7.80782 2.51716 7.88283C2.59217 7.95784 2.69391 7.99999 2.8 7.99999C2.90609 7.99999 3.00783 7.95784 3.08284 7.88283C3.15786 7.80782 3.2 7.70607 3.2 7.59999C3.2 7.4939 3.15786 7.39216 3.08284 7.31714C3.00783 7.24213 2.90609 7.19999 2.8 7.19999ZM2.4 9.19999C2.4 9.0939 2.44214 8.99216 2.51716 8.91714C2.59217 8.84213 2.69391 8.79999 2.8 8.79999C2.90609 8.79999 3.00783 8.84213 3.08284 8.91714C3.15786 8.99216 3.2 9.0939 3.2 9.19999C3.2 9.30607 3.15786 9.40782 3.08284 9.48283C3.00783 9.55785 2.90609 9.59999 2.8 9.59999C2.69391 9.59999 2.59217 9.55785 2.51716 9.48283C2.44214 9.40782 2.4 9.30607 2.4 9.19999ZM4.4 8.79999C4.29391 8.79999 4.19217 8.84213 4.11716 8.91714C4.04214 8.99216 4 9.0939 4 9.19999C4 9.30607 4.04214 9.40782 4.11716 9.48283C4.19217 9.55785 4.29391 9.59999 4.4 9.59999C4.50609 9.59999 4.60783 9.55785 4.68284 9.48283C4.75786 9.40782 4.8 9.30607 4.8 9.19999C4.8 9.0939 4.75786 8.99216 4.68284 8.91714C4.60783 8.84213 4.50609 8.79999 4.4 8.79999ZM5.6 9.19999C5.6 9.0939 5.64214 8.99216 5.71716 8.91714C5.79217 8.84213 5.89391 8.79999 6 8.79999C6.10609 8.79999 6.20783 8.84213 6.28284 8.91714C6.35786 8.99216 6.4 9.0939 6.4 9.19999C6.4 9.30607 6.35786 9.40782 6.28284 9.48283C6.20783 9.55785 6.10609 9.59999 6 9.59999C5.89391 9.59999 5.79217 9.55785 5.71716 9.48283C5.64214 9.40782 5.6 9.30607 5.6 9.19999ZM7.6 8.79999C7.49391 8.79999 7.39217 8.84213 7.31716 8.91714C7.24214 8.99216 7.2 9.0939 7.2 9.19999C7.2 9.30607 7.24214 9.40782 7.31716 9.48283C7.39217 9.55785 7.49391 9.59999 7.6 9.59999C7.70609 9.59999 7.80783 9.55785 7.88284 9.48283C7.95786 9.40782 8 9.30607 8 9.19999C8 9.0939 7.95786 8.99216 7.88284 8.91714C7.80783 8.84213 7.70609 8.79999 7.6 8.79999Z" fill="#545454"/></svg>
+          Dec 09, 2022        </p>
+
+                  <figure class="d-u-md-n mb-d-sm-20">
+            <img width="738" height="418" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20738%20418'%3E%3C/svg%3E" class="br-12 wp-post-image" alt="christmas oshi" decoding="async" data-lazy-srcset="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png 738w,   https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi-260x147.png 260w" data-lazy-sizes="(max-width: 738px) 100vw, 738px" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png" /><noscript><img width="738" height="418" src="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png" class="br-12 wp-post-image" alt="christmas oshi" decoding="async" srcset="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png 738w,   https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi-260x147.png 260w" sizes="(max-width: 738px) 100vw, 738px" /></noscript>          </figure>
+        
+                  <div class="wp-editor"><a href="https://gamblineers.com/oshi-casino-review/"><b>Oshi</b></a> presents their brand new <strong>Xmas Calendar</strong>!
+They have prepared <strong>25 unique bonuses</strong> for their players. Every day, from <strong>1st do 25th</strong> of December, visit them and discover the unique bonus of the day!</div>
+              </div>
+
+              <div class="col-u-md-5 d-d-sm-n mt-u-md-10 ta-c">
+          <figure class="h-u-md-100p d-u-md-f ai-u-md-c jc-u-md-c br-u-md-12 of-u-md-h ps-u-md-r">
+            <img width="738" height="418" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20738%20418'%3E%3C/svg%3E" class="nh__img ps-u-md-a wp-post-image" alt="christmas oshi" decoding="async" loading="lazy" data-lazy-srcset="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png 738w,   https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi-260x147.png 260w" data-lazy-sizes="(max-width: 738px) 100vw, 738px" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png" /><noscript><img width="738" height="418" src="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png" class="nh__img ps-u-md-a wp-post-image" alt="christmas oshi" decoding="async" loading="lazy" srcset="https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi.png 738w,   https://gamblineers.com/wp-content/uploads/2022/12/christmas-oshi-260x147.png 260w" sizes="(max-width: 738px) 100vw, 738px" /></noscript>          </figure>
+        </div>
+          </div>
+  </div>
+</header>
+
+  <div class="container py-u-md-40 pb-d-sm-30">
+    <div class="row-u-md mx-u-lg-n10">
+      <div class="col-content col-u-md order-u-md-2">
+        
+        <link data-minify="1" rel="preload stylesheet" as="style" id="al-text-section-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/text-section.css?ver=1678952303" type="text/css" media="all"><div class="ts of-h my-30">    <div class="container">
+              <div class="wp-editor"><p>Oshi casino is the place to be this holiday season! From December <strong>1st to 25th</strong>, they are offering <strong>25 unique bonuses</strong> every day. Whether you&#8217;re a seasoned gambler or a newcomer to the world of online casinos, there&#8217;s something for everyone at Oshi. With their daily bonuses, you&#8217;ll have the chance to <strong>win big</strong> and have fun while doing it. Don&#8217;t miss out on this exciting <a href="https://gamblineers.com/christmas-casino-promotions/"><strong>Christmas</strong></a> opportunity – visit Oshi casino today!</p>
+</div>
+          </div>
+</div><link data-minify="1" rel="preload stylesheet" as="style" id="al-list-casinos-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/list-casinos.css?ver=1678952092" type="text/css" media="all"><div class="lc my-45 js-list-casinos" data-view='list' data-slider='1' data-ordered='1' data-page_posts='1' data-total_posts='1' data-args='{"post_type":"post","post_status":["publish","private"],"list_content":"casinos","post__in":[37861],"orderby":"post__in","order":"DESC","posts_per_page":1}'>  <div class="container">
+    
+              <div class="lc--ordered  js-append-casinos">
+                
+<div class="cl mb-20 p-u-md-20 p-d-sm-12 br-14 bg-l ps-r">
+  <div class="row ai-c">
+    <div class="col-thumb col-o-sm-2 col-o-xs-auto mb-o-xs-15 pr-u-sm-8 pr-o-xs-0 ps-r order-u-md-1">
+            <a href="/go/oshi" target="_blank" rel="nofollow" class="cl__thumb foc p-10 br-12" style="background-color: #5000b2"><img width="210" height="130" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20130'%3E%3C/svg%3E" class="attachment-casino size-casino wp-post-image" alt="Oshi logo" decoding="async" loading="lazy" data-lazy-src="https://gamblineers.com/wp-content/uploads/2023/01/new-oshi.png" /><noscript><img width="210" height="130" src="https://gamblineers.com/wp-content/uploads/2023/01/new-oshi.png" class="attachment-casino size-casino wp-post-image" alt="Oshi logo" decoding="async" loading="lazy" /></noscript></a>
+              <p class="cl__type foc w-22 h-22 br-c br-p ps-a" style="background-color: #32348d"><a href="https://gamblineers.com/crypto-casino-types/" ><img width="20" height="20" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'%3E%3C/svg%3E" class="attachment-46x46 size-46x46" alt="" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/08/white-hybrid-fiat.svg" /><noscript><img width="20" height="20" src="https://gamblineers.com/wp-content/uploads/2022/08/white-hybrid-fiat.svg" class="attachment-46x46 size-46x46" alt="" decoding="async" /></noscript></a></p>
+          </div>
+
+    <div class="col-casino col-o-sm-2 col-o-xs mb-o-xs-15 px-u-sm-8 order-u-md-1">
+      <h3 class="fs-20"><a href="https://gamblineers.com/oshi-casino-review/">Oshi</a></h3>
+          </div>
+
+                
+
+	                <div class="col-bonus col-o-sm col-o-md mb-o-xs-15 px-u-md-8 order-u-md-1">
+                      <div class="my-n5">
+                              <div class="cl__bonus__item">
+                  <p class="mt-5 mb-10 fs-14">First deposit</p>
+                  <p class="mb-5 fs-u-md-20 fs-d-sm-18 fw-bl tc-d tt-u">150% up to 500 € + 200 free spins</p>
+                                      <ul class="d-f f-w mx-n2 pt-5 mb-5">
+                                              <li
+                          class="mx-2 py-4 px-10 br-p fw-b fs-12"
+                          style="                            background-color: #8b67e5;                            color: #ffffff;                          "
+                        >Exclusive</li>
+                                              <li
+                          class="mx-2 py-4 px-10 br-p fw-b fs-12"
+                          style="                            background-color: #e072bf;                            color: #ffffff;                          "
+                        >High FS</li>
+                                          </ul>
+                                  </div>
+                            </div>
+
+                              </div>
+                
+      
+               
+    <div class="col d-f f-c ai-c order-u-md-2">
+      <a href="/go/oshi" target="_blank" rel="nofollow" class="btn w-100p mb-10 fw-bl fs-u-sm-20 tc-w btn--p">Play Now</a>
+                  	<a href="https://gamblineers.com/oshi-casino-review/" class="tc-d tc-h-p td-u">Read review</a>
+          
+    </div>
+  </div>
+</div>              </div>
+
+      <div class="ta-c">
+        <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:auto;margin-right:auto;display:none;background:0 0" width="51" height="51" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="mt-30 js-loader"><circle cx="50" cy="50" r="37.741" fill="none" stroke="var(--primary)" stroke-width="2"><animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;51" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="-0.5s"/><animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline" begin="-0.5s"/></circle><circle cx="50" cy="50" r="10.315" fill="none" stroke="var(--primary-variant)" stroke-width="2"><animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;51" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline"/><animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline"/></circle></svg>
+        <button class="btn btn--p tc-w w-200 js-casinos-loadmore" style="display: none;">Load more</button>
+
+              </div>
+
+      </div>
+</div>      </div>
+      <div class="col-sidebar px-u-lg-10 mt-d-sm-30 order-u-md-1 ps-r">
+        <link data-minify="1" rel="preload stylesheet" as="style" id="al-casinos-sidebar-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/casinos-sidebar.css?ver=1678952092" type="text/css" media="all">  <div class="ps-u-sm-st" style="top: 105px">
+    <h3>Top Casinos</h3>
+    <div class="row-u-sm mx-o-sm-n5 mx-u-md-0">
+      <div class="col-o-sm px-o-sm-5 px-u-md-0 mt-15">
+  <div class="h-o-sm-100p p-8 tc-d bg-l br-12">
+    <div class="row f-o-sm-c mx-n4">
+              <figure class="col-auto w-o-sm-100p px-4 mb-o-sm-10">
+          <a href="/go/bitstarz" target="_blank" rel="nofollow" class="sc__thumb foc p-5 br-8 of-h" style="background-color: #0a0202"><img width="210" height="130" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20130'%3E%3C/svg%3E" class="attachment-casino size-casino wp-post-image" alt="" decoding="async" loading="lazy" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/07/new-Bitstarz.png" /><noscript><img width="210" height="130" src="https://gamblineers.com/wp-content/uploads/2022/07/new-Bitstarz.png" class="attachment-casino size-casino wp-post-image" alt="" decoding="async" loading="lazy" /></noscript></a>
+        </figure>
+      
+      <div class="col px-4 d-o-sm-f f-o-sm-c">
+        <div class="row mb-5 mx-n5 ai-fs">
+          <h3 class="col px-5 fs-13 fw-b"><a href="https://gamblineers.com/bitstarz-casino-review/">Bitstarz</a></h3>
+          <div class="col-auto px-4 pt-3 d-f ai-c">
+            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0L7.69987 3.66032L11.7063 4.1459L8.75046 6.89368L9.52671 10.8541L6 8.892L2.47329 10.8541L3.24954 6.89368L0.293661 4.1459L4.30013 3.66032L6 0Z" fill="#FFBF00"/></svg>
+            <p class="fw-b ml-2 fs-10">7.9</p>
+          </div>
+        </div>
+
+                  <p class="mb-u-md-5 mb-o-sm-10 mb-o-xs-5 fs-13">100% up to 1 BTC + 180 free spins</p>
+              </div>
+    </div>
+
+    <div class="row ai-c mt-o-sm-t mx-n4 ta-c">
+
+      <div class="col-u-md-auto col-o-sm-12 col-o-xs-auto px-4 order-o-sm-2">
+                      <a href="https://gamblineers.com/bitstarz-casino-review/" class="d-b w-u-sm-100 w-o-xs-125 mx-a fs-12 fw-m tc-in td-u">Read review</a>
+          	  </div>
+
+      <div class="col-u-md col-o-sm-12 col-o-xs px-4 order-o-sm-1">
+        <a href="/go/bitstarz" target="_blank" rel="nofollow" class="btn w-100p h-30 mt-o-sm-a mb-5 fw-bl fs-u-sm-12 tc-w btn--p">Play Now</a>
+      </div>
+    </div>
+  </div>
+</div><div class="col-o-sm px-o-sm-5 px-u-md-0 mt-15">
+  <div class="h-o-sm-100p p-8 tc-d bg-l br-12">
+    <div class="row f-o-sm-c mx-n4">
+              <figure class="col-auto w-o-sm-100p px-4 mb-o-sm-10">
+          <a href="/go/mbit" target="_blank" rel="nofollow" class="sc__thumb foc p-5 br-8 of-h" style="background-color: #0a102b"><img width="210" height="130" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20130'%3E%3C/svg%3E" class="attachment-casino size-casino wp-post-image" alt="" decoding="async" loading="lazy" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/08/new-mbit-casino12.png" /><noscript><img width="210" height="130" src="https://gamblineers.com/wp-content/uploads/2022/08/new-mbit-casino12.png" class="attachment-casino size-casino wp-post-image" alt="" decoding="async" loading="lazy" /></noscript></a>
+        </figure>
+      
+      <div class="col px-4 d-o-sm-f f-o-sm-c">
+        <div class="row mb-5 mx-n5 ai-fs">
+          <h3 class="col px-5 fs-13 fw-b"><a href="https://gamblineers.com/mbit-casino-review/">Mbit</a></h3>
+          <div class="col-auto px-4 pt-3 d-f ai-c">
+            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0L7.69987 3.66032L11.7063 4.1459L8.75046 6.89368L9.52671 10.8541L6 8.892L2.47329 10.8541L3.24954 6.89368L0.293661 4.1459L4.30013 3.66032L6 0Z" fill="#FFBF00"/></svg>
+            <p class="fw-b ml-2 fs-10">7.7</p>
+          </div>
+        </div>
+
+                  <p class="mb-u-md-5 mb-o-sm-10 mb-o-xs-5 fs-13">175% up to 2 BTC + 300 free spins</p>
+              </div>
+    </div>
+
+    <div class="row ai-c mt-o-sm-t mx-n4 ta-c">
+
+      <div class="col-u-md-auto col-o-sm-12 col-o-xs-auto px-4 order-o-sm-2">
+                      <a href="https://gamblineers.com/mbit-casino-review/" class="d-b w-u-sm-100 w-o-xs-125 mx-a fs-12 fw-m tc-in td-u">Read review</a>
+          	  </div>
+
+      <div class="col-u-md col-o-sm-12 col-o-xs px-4 order-o-sm-1">
+        <a href="/go/mbit" target="_blank" rel="nofollow" class="btn w-100p h-30 mt-o-sm-a mb-5 fw-bl fs-u-sm-12 tc-w btn--p">Play Now</a>
+      </div>
+    </div>
+  </div>
+</div><div class="col-o-sm px-o-sm-5 px-u-md-0 mt-15">
+  <div class="h-o-sm-100p p-8 tc-d bg-l br-12">
+    <div class="row f-o-sm-c mx-n4">
+              <figure class="col-auto w-o-sm-100p px-4 mb-o-sm-10">
+          <a href="/go/bc-game" target="_blank" rel="nofollow" class="sc__thumb foc p-5 br-8 of-h" style="background-color: #1e2024"><img width="210" height="130" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20210%20130'%3E%3C/svg%3E" class="attachment-casino size-casino wp-post-image" alt="" decoding="async" loading="lazy" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/07/new-bc.game_.png" /><noscript><img width="210" height="130" src="https://gamblineers.com/wp-content/uploads/2022/07/new-bc.game_.png" class="attachment-casino size-casino wp-post-image" alt="" decoding="async" loading="lazy" /></noscript></a>
+        </figure>
+      
+      <div class="col px-4 d-o-sm-f f-o-sm-c">
+        <div class="row mb-5 mx-n5 ai-fs">
+          <h3 class="col px-5 fs-13 fw-b"><a href="https://gamblineers.com/bc-game-review/">Bc.Game</a></h3>
+          <div class="col-auto px-4 pt-3 d-f ai-c">
+            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 0L7.69987 3.66032L11.7063 4.1459L8.75046 6.89368L9.52671 10.8541L6 8.892L2.47329 10.8541L3.24954 6.89368L0.293661 4.1459L4.30013 3.66032L6 0Z" fill="#FFBF00"/></svg>
+            <p class="fw-b ml-2 fs-10">8.2</p>
+          </div>
+        </div>
+
+                  <p class="mb-u-md-5 mb-o-sm-10 mb-o-xs-5 fs-13">80% up to $79</p>
+              </div>
+    </div>
+
+    <div class="row ai-c mt-o-sm-t mx-n4 ta-c">
+
+      <div class="col-u-md-auto col-o-sm-12 col-o-xs-auto px-4 order-o-sm-2">
+                      <a href="https://gamblineers.com/bc-game-review/" class="d-b w-u-sm-100 w-o-xs-125 mx-a fs-12 fw-m tc-in td-u">Read review</a>
+          	  </div>
+
+      <div class="col-u-md col-o-sm-12 col-o-xs px-4 order-o-sm-1">
+        <a href="/go/bc-game" target="_blank" rel="nofollow" class="btn w-100p h-30 mt-o-sm-a mb-5 fw-bl fs-u-sm-12 tc-w btn--p">Play Now</a>
+      </div>
+    </div>
+  </div>
+</div>    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-30mb-30">
+  <div class="container">
+    <div class="br-16 bg-l p-u-sm-30 p-o-xs-12">
+      <div class="row-u-sm mb-u-sm-20">
+        <div class="col-u-sm mb-o-xs-10">
+          <div class="row ai-c mx-n8">
+            <div class="col-auto px-8">
+              <abbr title="Jost" class="foc w-u-sm-60 w-o-xs-46 h-u-sm-60 h-o-xs-46 td-n tc-w fw-b tt-u fs-u-sm-20 fs-o-xs-18 br-c bg-pv">
+                J              </abbr>
+            </div>
+            <div class="col px-8">
+              <p class="mb-u-sm-10 mb-o-xs-5 fs-14">Author</p>
+              <p class="fs-u-sm-14 tc-d"><strong class="fs-u-sm-20 fs-o-xs-16">Jost</strong> | Web Developer / Designer</p>
+            </div>
+          </div>
+        </div>
+              </div>
+
+      <div class="wp-editor fs-14">I love web developing and graphic design, and seeking continuous growth in these two areas brought me to be a part of the Gamblineers team. I also have a huge passion for fitness, travelling and everything sports-related. I believe crypto is the future and investing in crypto is a good opportunity when done carefully.</div>
+    </div>
+  </div>
+</div></article>
+
+<link data-minify="1" rel="preload stylesheet" as="style" id="al-title-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/title.css?ver=1678952303" type="text/css" media="all"><div class="title mt-25">  <div class="container">
+    <h3 class="mb-20 ta-o-xs-c">Other <span class="tc-pv">Recent</span> Promotions </h3>
+      </div>
+</div><link data-minify="1" rel="preload stylesheet" as="style" id="al-list-news-css" href="https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/styles/list-news.css?ver=1678952568" type="text/css" media="all"><link rel="preload stylesheet" as="style" id="al-swiper-css"  class="assets-lazy-style" data-href="https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/styles/swiper.css" type="text/css" media="all"><div class="ln my-30 js-list-news ln--slider"data-page_posts='3' data-total_posts='3' data-args='{"post_type":"news","post_status":"publish","orderby":"date","tax_query":[{"taxonomy":"news-category","field":"term_id","terms":["1264"]}],"post__not_in":[42783],"posts_per_page":3}' data-view='1'>  <div class="container">
+    
+    
+      
+              <div class="swiper mx-n15 px-5 js-news-slider">
+          <div class="swiper-wrapper mb-n20 f-u-sm-w js-append-news">
+      
+                  <div class="col-u-sm-4 px-10 mb-20 swiper-slide">
+            <article class="ln__box h-100p d-f f-c br-12 bg-l fs-14 ps-r bs-h-l">
+  <figure class="ln__thumb of-h h-0 br-t-12 of-h ps-r">
+    <img width="738" height="418" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20738%20418'%3E%3C/svg%3E" class="attachment-news size-news wp-post-image" alt="needforspin st.patrick promo" decoding="async" loading="lazy" data-lazy-srcset="https://gamblineers.com/wp-content/uploads/2023/03/needforspin-st.patrick-promo.png 738w,   https://gamblineers.com/wp-content/uploads/2023/03/needforspin-st.patrick-promo-260x147.png 260w" data-lazy-sizes="(max-width: 738px) 100vw, 738px" data-lazy-src="https://gamblineers.com/wp-content/uploads/2023/03/needforspin-st.patrick-promo.png" /><noscript><img width="738" height="418" src="https://gamblineers.com/wp-content/uploads/2023/03/needforspin-st.patrick-promo.png" class="attachment-news size-news wp-post-image" alt="needforspin st.patrick promo" decoding="async" loading="lazy" srcset="https://gamblineers.com/wp-content/uploads/2023/03/needforspin-st.patrick-promo.png 738w,   https://gamblineers.com/wp-content/uploads/2023/03/needforspin-st.patrick-promo-260x147.png 260w" sizes="(max-width: 738px) 100vw, 738px" /></noscript>    <span class="ln__date py-8 px-12 ps-a fw-m fs-12 bg-pv tc-w br-8">Mar 15, 2023</span>
+  </figure>
+  <div class="p-u-sm-20 p-o-xs-15">
+    <h3 class="h4 mb-u-sm-20 mb-o-xs-15 fw-bl">St. Patrick Package €1500 + 370 FS</h3>
+    <div class="wp-editor tc-n">
+      <p>
+        Feeling lucky this St. Patrick's Day? Then you won't want to miss out on the amazing promotions and bonuses available at Need for Spin casino! To celebrate this festive occasion, they are offering ...        <a href="https://gamblineers.com/need-for-spin-promo/" class="l-str tc-pv fw-m fst-i">more<svg class="ml-5" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.219668 0.219703C0.512558 -0.0731974 0.987438 -0.0731974 1.28033 0.219703L5.5303 4.46967C5.8232 4.76256 5.8232 5.23744 5.5303 5.53033L1.28033 9.78033C0.987438 10.0732 0.512558 10.0732 0.219668 9.78033C-0.0732225 9.48744 -0.0732225 9.01256 0.219668 8.71967L3.93934 5L0.219668 1.2803C-0.0732225 0.987403 -0.0732225 0.512603 0.219668 0.219703Z" fill="var(--primary-variant)"/></svg></a>
+      </p>
+    </div>
+  </div>
+</article>
+          </div>
+                  <div class="col-u-sm-4 px-10 mb-20 swiper-slide">
+            <article class="ln__box h-100p d-f f-c br-12 bg-l fs-14 ps-r bs-h-l">
+  <figure class="ln__thumb of-h h-0 br-t-12 of-h ps-r">
+    <img width="738" height="418" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20738%20418'%3E%3C/svg%3E" class="attachment-news size-news wp-post-image" alt="wildcoins st.patrick promo" decoding="async" loading="lazy" data-lazy-srcset="https://gamblineers.com/wp-content/uploads/2022/12/wildcoins-st.patrick-promo.png 738w,   https://gamblineers.com/wp-content/uploads/2022/12/wildcoins-st.patrick-promo-260x147.png 260w" data-lazy-sizes="(max-width: 738px) 100vw, 738px" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/12/wildcoins-st.patrick-promo.png" /><noscript><img width="738" height="418" src="https://gamblineers.com/wp-content/uploads/2022/12/wildcoins-st.patrick-promo.png" class="attachment-news size-news wp-post-image" alt="wildcoins st.patrick promo" decoding="async" loading="lazy" srcset="https://gamblineers.com/wp-content/uploads/2022/12/wildcoins-st.patrick-promo.png 738w,   https://gamblineers.com/wp-content/uploads/2022/12/wildcoins-st.patrick-promo-260x147.png 260w" sizes="(max-width: 738px) 100vw, 738px" /></noscript>    <span class="ln__date py-8 px-12 ps-a fw-m fs-12 bg-pv tc-w br-8">Mar 14, 2023</span>
+  </figure>
+  <div class="p-u-sm-20 p-o-xs-15">
+    <h3 class="h4 mb-u-sm-20 mb-o-xs-15 fw-bl">30 No deposit Free Spins on Lucky Clover</h3>
+    <div class="wp-editor tc-n">
+      <p>
+        The leprechaun's are out, so let's give them a shout...Come and get into the action with 30 no deposit free spins for Wildcoins St. Patrick's Day celebrations. It's one of the luckiest days of the ...        <a href="https://gamblineers.com/wildcoins-promo/" class="l-str tc-pv fw-m fst-i">more<svg class="ml-5" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.219668 0.219703C0.512558 -0.0731974 0.987438 -0.0731974 1.28033 0.219703L5.5303 4.46967C5.8232 4.76256 5.8232 5.23744 5.5303 5.53033L1.28033 9.78033C0.987438 10.0732 0.512558 10.0732 0.219668 9.78033C-0.0732225 9.48744 -0.0732225 9.01256 0.219668 8.71967L3.93934 5L0.219668 1.2803C-0.0732225 0.987403 -0.0732225 0.512603 0.219668 0.219703Z" fill="var(--primary-variant)"/></svg></a>
+      </p>
+    </div>
+  </div>
+</article>
+          </div>
+                  <div class="col-u-sm-4 px-10 mb-20 swiper-slide">
+            <article class="ln__box h-100p d-f f-c br-12 bg-l fs-14 ps-r bs-h-l">
+  <figure class="ln__thumb of-h h-0 br-t-12 of-h ps-r">
+    <img width="738" height="418" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20738%20418'%3E%3C/svg%3E" class="attachment-news size-news wp-post-image" alt="trustdice st.patrick promo" decoding="async" loading="lazy" data-lazy-srcset="https://gamblineers.com/wp-content/uploads/2023/03/trustdice-st.patrick-promo.png 738w,   https://gamblineers.com/wp-content/uploads/2023/03/trustdice-st.patrick-promo-260x147.png 260w" data-lazy-sizes="(max-width: 738px) 100vw, 738px" data-lazy-src="https://gamblineers.com/wp-content/uploads/2023/03/trustdice-st.patrick-promo.png" /><noscript><img width="738" height="418" src="https://gamblineers.com/wp-content/uploads/2023/03/trustdice-st.patrick-promo.png" class="attachment-news size-news wp-post-image" alt="trustdice st.patrick promo" decoding="async" loading="lazy" srcset="https://gamblineers.com/wp-content/uploads/2023/03/trustdice-st.patrick-promo.png 738w,   https://gamblineers.com/wp-content/uploads/2023/03/trustdice-st.patrick-promo-260x147.png 260w" sizes="(max-width: 738px) 100vw, 738px" /></noscript>    <span class="ln__date py-8 px-12 ps-a fw-m fs-12 bg-pv tc-w br-8">Mar 14, 2023</span>
+  </figure>
+  <div class="p-u-sm-20 p-o-xs-15">
+    <h3 class="h4 mb-u-sm-20 mb-o-xs-15 fw-bl">Up to 100 Free Spins on St. Patrick’s Day</h3>
+    <div class="wp-editor tc-n">
+      <p>
+        With St. Patrick's Day free spins promo, you'll be feeling lucky in no time. Simply deposit and wager the required amount, and you'll be spinning the wheel of fortune for a chance to win up to 100 ...        <a href="https://gamblineers.com/trustdice-promo/" class="l-str tc-pv fw-m fst-i">more<svg class="ml-5" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.219668 0.219703C0.512558 -0.0731974 0.987438 -0.0731974 1.28033 0.219703L5.5303 4.46967C5.8232 4.76256 5.8232 5.23744 5.5303 5.53033L1.28033 9.78033C0.987438 10.0732 0.512558 10.0732 0.219668 9.78033C-0.0732225 9.48744 -0.0732225 9.01256 0.219668 8.71967L3.93934 5L0.219668 1.2803C-0.0732225 0.987403 -0.0732225 0.512603 0.219668 0.219703Z" fill="var(--primary-variant)"/></svg></a>
+      </p>
+    </div>
+  </div>
+</article>
+          </div>
+                          </div>
+              </div>
+    
+    <div class="ta-c">
+      <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:auto;margin-right:auto;display:none;background:0 0" width="51" height="51" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="mt-30 js-loader"><circle cx="50" cy="50" r="37.741" fill="none" stroke="var(--primary)" stroke-width="2"><animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;51" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="-0.5s"/><animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline" begin="-0.5s"/></circle><circle cx="50" cy="50" r="10.315" fill="none" stroke="var(--primary-variant)" stroke-width="2"><animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;51" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline"/><animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline"/></circle></svg>
+              <button class="btn w-200 mt-30 js-news-loadmore tc-w btn--p" style="display: none;">Load More</button>
+      
+          </div>
+  </div>
+</div><footer class="footer fw-m fs-14 bg-l">
+  <div class="container py-u-md-70 py-d-sm-25">
+    <div class="row-u-md">
+      <div class="col-u-md-5">
+                  <a href="https://gamblineers.com/" class="d-ib mb-25"><img width="243" height="44" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20243%2044'%3E%3C/svg%3E" class="wa mh-100p" alt="Gamblineers Logo" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/04/Gamblineers-Logo.svg" /><noscript><img width="243" height="44" src="https://gamblineers.com/wp-content/uploads/2022/04/Gamblineers-Logo.svg" class="wa mh-100p" alt="Gamblineers Logo" decoding="async" /></noscript></a>
+        
+                  <div class="wp-editor mb-25">The go-to source before choosing the best online casino for crypto gamblers. Find your casino from the largest altcoin collection on the web. May the odds be ever in your favor!</div>
+        
+                  <div class="socials d-f mb-d-sm-25 ai-c mx-n5">
+            <p class="mx-5">Find us:</p>
+                          <a href="https://www.facebook.com/gamblineers" target="_blank" rel="nofollow noopener noreferrer" class="mx-5"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" class="attachment-CF_social size-CF_social" alt="Facebook icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/03/facebook-footer.svg" /><noscript><img width="24" height="24" src="https://gamblineers.com/wp-content/uploads/2022/03/facebook-footer.svg" class="attachment-CF_social size-CF_social" alt="Facebook icon" decoding="async" /></noscript></a>
+                          <a href="https://twitter.com/gamblineers" target="_blank" rel="nofollow noopener noreferrer" class="mx-5"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" class="attachment-CF_social size-CF_social" alt="Twitter icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/03/twitter-footer.svg" /><noscript><img width="24" height="24" src="https://gamblineers.com/wp-content/uploads/2022/03/twitter-footer.svg" class="attachment-CF_social size-CF_social" alt="Twitter icon" decoding="async" /></noscript></a>
+                          <a href="https://www.linkedin.com/in/adam-gros/" target="_blank" rel="nofollow noopener noreferrer" class="mx-5"><img width="24" height="24" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3C/svg%3E" class="attachment-CF_social size-CF_social" alt="LinkedIn icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/03/linked-footer.svg" /><noscript><img width="24" height="24" src="https://gamblineers.com/wp-content/uploads/2022/03/linked-footer.svg" class="attachment-CF_social size-CF_social" alt="LinkedIn icon" decoding="async" /></noscript></a>
+                      </div>
+              </div>
+
+              <div class="col-u-md">
+          <button type="button" data-parent=".col-u-md" class="f-menu-title d-b mb-u-md-25 py-d-sm-10 w-100p fs-u-md-18 fs-d-sm-16 tc-d fw-b ta-l js-state">Popular Guides</button>
+          <ul id="f-menu-1" class="f-menu"><li id="menu-item-40103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40103"><a href="https://gamblineers.com/us-crypto-guide/">US Crypto Casinos</a></li>
+<li id="menu-item-40104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40104"><a href="https://gamblineers.com/binance-coin-casinos/">Binance Coin Casinos</a></li>
+<li id="menu-item-40107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40107"><a href="https://gamblineers.com/solana-casinos/">Solana Casinos</a></li>
+<li id="menu-item-40106" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40106"><a href="https://gamblineers.com/sandbox-casinos/">Sandbox Casinos</a></li>
+<li id="menu-item-40105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40105"><a href="https://gamblineers.com/1-gbp-deposit-casino/">£1 Deposit Casinos</a></li>
+</ul>        </div>
+      
+              <div class="col-u-md">
+          <button type="button" data-parent=".col-u-md" class="f-menu-title d-b mb-u-md-25 py-d-sm-10 w-100p fs-u-md-18 fs-d-sm-16 tc-d fw-b ta-l js-state">Useful Articles</button>
+          <ul id="f-menu-2" class="f-menu"><li id="menu-item-40108" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40108"><a href="https://gamblineers.com/how-to-find-rtp/">How to Use RTP?</a></li>
+<li id="menu-item-40109" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40109"><a href="https://gamblineers.com/is-online-gambling-legal-in-asia/">Gambling from Asia</a></li>
+<li id="menu-item-40110" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40110"><a href="https://gamblineers.com/guide-to-proving-fairness/">How to Prove Fairness?</a></li>
+<li id="menu-item-40111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40111"><a href="https://gamblineers.com/gcode/">GCODE</a></li>
+</ul>        </div>
+      
+              <div class="col-u-md">
+          <button type="button" data-parent=".col-u-md" class="f-menu-title d-b mb-u-md-25 py-d-sm-10 w-100p fs-u-md-18 fs-d-sm-16 tc-d fw-b ta-l js-state">About us</button>
+          <ul id="f-menu-3" class="f-menu"><li id="menu-item-40099" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40099"><a href="https://gamblineers.com/blog/">Blog</a></li>
+<li id="menu-item-40100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40100"><a href="https://gamblineers.com/about/">About</a></li>
+<li id="menu-item-40102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40102"><a href="https://gamblineers.com/terms-of-use/">Terms of Use</a></li>
+<li id="menu-item-40101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40101"><a href="https://gamblineers.com/privacy-and-cookies-policy/">Privacy and Cookies Policy</a></li>
+<li id="menu-item-40112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40112"><a href="https://gamblineers.com/sitemap_index.xml">Sitemap</a></li>
+</ul>        </div>
+          </div>
+  </div>
+
+  <div class="copyrights py-o-xs-5 fs-14 fw-n bg-pv tc-w ta-o-xs-c">
+    <div class="container">
+      <div class="row-u-sm ai-u-sm-c">
+                  <div class="col-u-sm d-f ai-c jc-o-xs-c f-w py-u-sm-12 py-o-xs-8">
+                          <div class="mx-5">
+                                  <img width="28" height="28" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2028%2028'%3E%3C/svg%3E" class="attachment-full size-full" alt="Age limit icon" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/03/footer-age.svg" /><noscript><img width="28" height="28" src="https://gamblineers.com/wp-content/uploads/2022/03/footer-age.svg" class="attachment-full size-full" alt="Age limit icon" decoding="async" /></noscript>                              </div>
+                          <div class="mx-5">
+                                  <a href="https://www.begambleaware.org/" target="_blank" rel="nofollow noopener noreferrer">
+                    <img width="156" height="16" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20156%2016'%3E%3C/svg%3E" class="attachment-full size-full" alt="Gambleaware logo" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/07/gambleaware-logo.svg" /><noscript><img width="156" height="16" src="https://gamblineers.com/wp-content/uploads/2022/07/gambleaware-logo.svg" class="attachment-full size-full" alt="Gambleaware logo" decoding="async" /></noscript>                  </a>
+                              </div>
+                          <div class="mx-5">
+                                  <a href="https://www.gamcare.org.uk/" target="_blank" rel="nofollow noopener noreferrer">
+                    <img width="83" height="15" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2083%2015'%3E%3C/svg%3E" class="attachment-full size-full" alt="Gamestop logo" decoding="async" data-lazy-src="https://gamblineers.com/wp-content/uploads/2022/07/gamestop-logo.svg" /><noscript><img width="83" height="15" src="https://gamblineers.com/wp-content/uploads/2022/07/gamestop-logo.svg" class="attachment-full size-full" alt="Gamestop logo" decoding="async" /></noscript>                  </a>
+                              </div>
+                      </div>
+                <p class="col-u-sm ta-c py-u-sm-12 py-o-xs-8">Copyright 2022 | All rights reserved</p>
+        <p class="col-u-sm ta-u-sm-r py-u-sm-12 py-o-xs-8">Made with <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.655 14.4159C7.65523 14.4161 7.65543 14.4162 8 13.75C8.34457 14.4162 8.34477 14.4161 8.34501 14.4159C8.12889 14.5277 7.87111 14.5277 7.655 14.4159ZM7.655 14.4159L8 13.75L8.34501 14.4159L8.34731 14.4147L8.35269 14.4119L8.37117 14.4022C8.38687 14.3939 8.40926 14.382 8.4379 14.3665C8.49516 14.3356 8.57746 14.2904 8.6812 14.2317C8.8886 14.1142 9.18229 13.942 9.53358 13.7199C10.2346 13.2767 11.1728 12.63 12.1147 11.8181C13.9554 10.2312 16 7.85031 16 5C16 2.33579 13.9142 0.5 11.75 0.5C10.2026 0.5 8.84711 1.30151 8 2.51995C7.15289 1.30151 5.79736 0.5 4.25 0.5C2.08579 0.5 0 2.33579 0 5C0 7.85031 2.04459 10.2312 3.8853 11.8181C4.82717 12.63 5.76538 13.2767 6.46642 13.7199C6.81771 13.942 7.1114 14.1142 7.3188 14.2317C7.42254 14.2904 7.50484 14.3356 7.5621 14.3665C7.59074 14.382 7.61313 14.3939 7.62883 14.4022L7.64731 14.4119L7.65269 14.4147L7.655 14.4159Z" fill="#FF51B0"/></svg> by <a href="https://elegancedesign.net/" target="_blank" rel="nofollow" class="fw-b tc-in"> E-legance.net</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<link rel="preload stylesheet" as="style" id="al-holiday-css"  class="assets-lazy-style" data-href="https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/styles/holiday.css" type="text/css" media="all">  <div class="holiday w-40 h-40 ps-f">
+          <a href="https://gamblineers.com/st-patricks-day-casino-promotions/" class="">
+        <img width="160" height="160" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20160%20160'%3E%3C/svg%3E" class="attachment-full size-full" alt="St. Patrick&#039;s Day Casino Promotions" decoding="async" data-lazy-srcset="https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon.png 160w,   https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon-150x150.png 150w,   https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon-46x46.png 46w" data-lazy-sizes="(max-width: 160px) 100vw, 160px" data-lazy-src="https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon.png" /><noscript><img width="160" height="160" src="https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon.png" class="attachment-full size-full" alt="St. Patrick&#039;s Day Casino Promotions" decoding="async" srcset="https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon.png 160w,   https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon-150x150.png 150w,   https://gamblineers.com/wp-content/uploads/2023/03/st.pactrick-iscon-46x46.png 46w" sizes="(max-width: 160px) 100vw, 160px" /></noscript>    </a>  </div>
+<link rel="preload stylesheet" as="style" id="al-cookie-css"  class="assets-lazy-style" data-href="https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/styles/cookie.css" type="text/css" media="all">  <div class="cookie ps-f br-t-10 br-b-u-sm-10 of-h bg-w">
+    <button type="button" class="cookie__btn ps-a w-30 h-30"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0.8L7.2 0L4 3.2L0.8 0L0 0.8L3.2 4L0 7.2L0.8 8L4 4.8L7.2 8L8 7.2L4.8 4L8 0.8Z" fill="#6B11C9"/></svg></button>
+    <div class="px-10 py-10 pr-25">
+      <div class="row ai-c mx-n5">
+        <div class="col-auto px-5"><img width="40" height="40" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3C/svg%3E" alt="cookie" data-lazy-src="https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/images/icons/cookie.svg"><noscript><img width="40" height="40" src="https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/images/icons/cookie.svg" alt="cookie"></noscript></div>
+        <div class="col px-5 wp-editor fs-u-sm-12 fs-o-xs-10"><p>This website uses cookies to improve your experience. By continuing to use this website or by closing this message, you agree with the use of cookies.</p></div>
+      </div>
+    </div>
+        <div class="row ng">
+              <div class="col">
+          <a href="https://gamblineers.com/terms-of-use/" class="btn w-100p h-30 fs-10 fw-m br-0 tc-d btn--l">Terms of Use</a>
+        </div>
+                    <div class="col">
+          <a href="https://gamblineers.com/privacy-and-cookies-policy/" class="btn w-100p h-30 fs-10 fw-m br-0 tc-w btn--p">Privacy and Cookies Policy</a>
+        </div>
+          </div>
+      </div>
+<div class="toc d-n">
+  <div class="toc__head float-u-sm-r d-f ai-c jc-fe br-l-u-sm-10 br-r-o-xs-10">
+    <p class="col tc-w fw-b fs-16 ta-c order-u-sm-2">Table of contents</p>
+    <button type="button" class="toc__btn js-toc-btn"><svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.5417 16.2948C18.5417 16.5559 18.4395 16.8062 18.2577 16.9909C18.0758 17.1755 17.8291 17.2792 17.5719 17.2792H10.164C9.90676 17.2792 9.6601 17.1755 9.47823 16.9909C9.29636 16.8062 9.19419 16.5559 9.19419 16.2948C9.19419 16.0337 9.29636 15.7833 9.47823 15.5987C9.6601 15.4141 9.90676 15.3104 10.164 15.3104H17.5719C17.8291 15.3104 18.0758 15.4141 18.2577 15.5987C18.4395 15.7833 18.5417 16.0337 18.5417 16.2948ZM17.5719 20.276H10.164C9.90676 20.276 9.6601 20.3798 9.47823 20.5644C9.29636 20.749 9.19419 20.9993 9.19419 21.2604C9.19419 21.5215 9.29636 21.7719 9.47823 21.9565C9.6601 22.1411 9.90676 22.2448 10.164 22.2448H17.5719C17.8291 22.2448 18.0758 22.1411 18.2577 21.9565C18.4395 21.7719 18.5417 21.5215 18.5417 21.2604C18.5417 20.9993 18.4395 20.749 18.2577 20.5644C18.0758 20.3798 17.8291 20.276 17.5719 20.276ZM17.5719 10.3448H10.164C9.90676 10.3448 9.6601 10.4485 9.47823 10.6331C9.29636 10.8177 9.19419 11.0681 9.19419 11.3292C9.19419 11.5902 9.29636 11.8406 9.47823 12.0252C9.6601 12.2098 9.90676 12.3135 10.164 12.3135H17.5719C17.8291 12.3135 18.0758 12.2098 18.2577 12.0252C18.4395 11.8406 18.5417 11.5902 18.5417 11.3292C18.5417 11.0681 18.4395 10.8177 18.2577 10.6331C18.0758 10.4485 17.8291 10.3448 17.5719 10.3448ZM22.9588 8.16156V24.4279C22.9577 25.3749 22.5866 26.2829 21.9269 26.9526C21.2671 27.6223 20.3726 27.9989 19.4396 28H8.29629C7.36328 27.9989 6.46879 27.6222 5.80905 26.9526C5.14932 26.2829 4.77821 25.3749 4.77716 24.4279V23.4107H4.14487C3.21186 23.4096 2.31737 23.0329 1.65763 22.3632C0.997891 21.6936 0.626788 20.7856 0.625732 19.8385V3.57213C0.626788 2.62507 0.997891 1.71711 1.65763 1.04744C2.31737 0.377764 3.21186 0.00107111 4.14487 0L15.2882 0C16.2212 0.00107111 17.1157 0.377764 17.7755 1.04744C18.4352 1.71711 18.8063 2.62507 18.8074 3.57213V4.58932H19.4396C20.3726 4.59038 21.2672 4.96709 21.9269 5.63682C22.5867 6.30654 22.9578 7.21456 22.9588 8.16167V8.16156ZM4.77716 21.4417V8.16167C4.77821 7.21461 5.14932 6.30665 5.80905 5.63698C6.46879 4.9673 7.36328 4.59061 8.29629 4.58954H16.868V3.57235C16.8676 3.14719 16.701 2.73956 16.4048 2.43892C16.1087 2.13828 15.7071 1.96918 15.2882 1.96875H4.14487C3.72608 1.96923 3.32457 2.13831 3.02844 2.4389C2.73232 2.73949 2.56574 3.14704 2.56527 3.57213V19.8383C2.56576 20.2634 2.73233 20.671 3.02846 20.9715C3.32459 21.2721 3.72608 21.4412 4.14487 21.4417H4.77716ZM21.0192 8.16167C21.0188 7.73657 20.8522 7.32902 20.556 7.02843C20.2599 6.72785 19.8584 6.55877 19.4396 6.55829H8.29629C7.8775 6.55877 7.476 6.72785 7.17987 7.02844C6.88374 7.32903 6.71717 7.73658 6.7167 8.16167V24.4279C6.71717 24.853 6.88374 25.2605 7.17987 25.5611C7.476 25.8617 7.8775 26.0308 8.29629 26.0312H19.4396C19.8584 26.0308 20.2599 25.8617 20.556 25.5611C20.8522 25.2605 21.0188 24.853 21.0192 24.4279V8.16167Z" fill="white"/></svg></button>
+  </div>
+</div>
+<a rel="nofollow" style="display:none" href="https://gamblineers.com/?blackhole=7f1cee0b42" title="Do NOT follow this link or you will be banned from the site!">Gamblineers</a>
+<script type="rocketlazyloadscript" data-minify="1" async data-rocket-type='text/javascript' src='https://gamblineers.com/wp-content/cache/min/1/wp-content/plugins/assets-lazy/js/assets-lazy.js?ver=1678952092' id='async-assets-lazy-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" async data-rocket-type='text/javascript' src='https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/scripts/module-settings.js?ver=1678952092' id='module-settings-async-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/main.js' id='al-main-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/main-menu.js' id='al-main-menu-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/search.js' id='al-search-js'></script>
+<script data-minify="1" async type='text/javascript' src='https://gamblineers.com/wp-content/cache/min/1/wp-content/themes/gamblineers-theme/resources/dist/scripts/table-contents.js?ver=1678952092' id='table-of-contents-async-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://gamblineers.com/wp-content/plugins/wp-rocket/assets/js/heartbeat.js?ver=3.12.0.5' id='heartbeat-js' defer></script>
+<script type="rocketlazyloadscript" async data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/sidebar-section.js' id='al-sidebar-section-async-js'></script>
+<script type="rocketlazyloadscript" async data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/list-casinos.js' id='al-list-casinos-async-js'></script>
+<script type="rocketlazyloadscript" async data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/list-news.js' id='al-list-news-async-js'></script>
+<script type="rocketlazyloadscript" async data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/swiper.js' id='al-swiper-async-js'></script>
+<script type="rocketlazyloadscript" async data-rocket-type='text/javascript' class="assets-lazy-script" data-jquery="1" data-src='https://gamblineers.com/wp-content/themes/gamblineers-theme/resources/dist/scripts/cookie.js' id='al-cookie-async-js'></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://gamblineers.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script>  </body>
+</html>
+
+<!-- Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com -->
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1678982617 -->

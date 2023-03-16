@@ -1,0 +1,11 @@
+// Flex Object Center
+.foc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    img {
+      width: auto;
+      max-height: 100%;
+    }
+}

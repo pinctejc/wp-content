@@ -1,0 +1,28 @@
+//
+// Buttons
+//
+@mixin make-btn-colors($colors: $btn-colors, $hover-colors: $btn-hover-colors) {
+  @each $key, $value in $colors {
+    .#{$btn-prefix}--#{$key} {
+      background-color: $value;
+
+        &:hover {
+          background-color: map-get($hover-colors, $key);
+        }
+    }
+  }
+}
+
+@mixin make-btn-ghost($colors: $btn-colors, $hover-colors: $btn-hover-colors) {
+  @each $key, $value in $colors {
+    .#{$btn-prefix}-g--#{$key} {
+      border-color: $value;
+
+        &:hover {
+          color: map-get($hover-colors, $key);
+          box-shadow: inset 0 0 0 2px map-get($hover-colors, $key);
+          border-color: map-get($hover-colors, $key);
+        }
+    }
+  }
+}

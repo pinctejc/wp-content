@@ -1,0 +1,71 @@
+//
+// Buttons
+//
+[class*='#{$btn-prefix}-'] {
+  color: $white;
+  transition: $btn-transition;
+}
+
+.#{$btn-prefix} {
+  display: inline-block;
+  max-width: 100%;
+  height: $btn-height;
+  padding: $btn-padding-y $btn-padding-x $btn-padding-y + 1px;
+  font-family: $btn-font-family;
+  font-weight: $btn-font-weight;
+  color: $btn-color;
+  font-size: $btn-font-size;
+  text-align: center;
+  line-height: $btn-line-height;
+  text-decoration: $btn-decoration;
+  white-space: $btn-white-space;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: $btn-border-width $btn-border-style $btn-border-color;
+  border-radius: $btn-border-radius;
+
+    @at-root a#{&} {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: normal;
+    }
+
+    &:hover {
+      text-decoration: $btn-hover-decoration;
+    }
+
+    &.disabled,
+    &:disabled {
+      opacity: $btn-disabled-opacity;
+    }
+
+    &-group {
+      @extend .d-f, .ai-c, .mx-n5;
+
+        .#{$btn-prefix} {
+          @extend .mx-5, .col-o-xs;
+        }
+    }
+
+    &__ds {
+
+
+        .active & {
+          display: none;
+        }
+    }
+
+    &__as {
+
+        .active & {
+          display: inline;
+        }
+    }
+}
+//
+// Alternate buttons
+//
+@include make-btn-colors();
+@include make-btn-ghost();

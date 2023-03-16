@@ -1,0 +1,94 @@
+
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.faq {
+  border: 1px solid #d1d3d9;
+
+    .wp-editor {
+      height: 0;
+      transition: height 500ms ease-in-out;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &.active {
+      box-shadow: 0 4px 14px rgba($black, .1);
+    }
+
+    &__q {
+      line-height: 1.4;
+      padding-right: 70px;
+
+        @include media-breakpoint-up(sm) {
+          min-height: 76px;
+        }
+
+        @include media-breakpoint-down(xs) {
+          min-height: 64px;
+        }
+
+        // &:hover,
+        &.active {
+          color: $primary-variant;
+        }
+    }
+
+    &__i {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 50%;
+      background-color: $light;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: auto;
+          width: 12px;
+          height: 2px;
+          background-color: $dark;
+        }
+
+        &::after {
+          transform: rotate(90deg);
+        }
+
+        @include media-breakpoint-up(sm) {
+          right: 20px;
+          width: 36px;
+          height: 36px;
+        }
+
+        @include media-breakpoint-down(xs) {
+          width: 24px;
+          height: 24px;
+          right: 12px;
+        }
+
+        .active & {
+          background-color: $primary-variant;
+
+            &::before {
+              z-index: 2;
+              background-color: $white;
+            }
+
+            &::after {
+              background-color: transparent;
+            }
+        }
+    }
+}

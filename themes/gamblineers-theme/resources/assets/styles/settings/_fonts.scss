@@ -1,0 +1,55 @@
+//
+// Fonts
+//
+// WP THEMES
+$font-family: 'Satoshi', sans-serif;
+$font-size-desktop: var(--font-size-desktop);
+$font-size-mobile: var(--font-size-mobile);
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Font Sizes
+$font-size-prefix: 'fs';
+$font-sizes: (
+  'b': $font-size-desktop,
+  '0': 0,
+  '8': 8px,
+  '10': 10px,
+  '11': 11px,
+  '12': 12px,
+  '13': 13px,
+  '14': 14px,
+  '15': 15px,
+  '16': 16px,
+  '18': 18px,
+  '20': 20px,
+  '22': 22px,
+  '26': 26px,
+  '24': 24px,
+  '28': 28px,
+  '30': 30px,
+  '34': 34px,
+  '36': 36px,
+  '44': 44px,
+);
+
+// Font Weights
+$font-weight-prefix: 'fw';
+$font-weights: (
+  'l': $font-weight-light,
+  'n': $font-weight-normal,
+  'm': $font-weight-medium,
+  'b': $font-weight-bold,
+  'bl': $font-weight-black,
+);
+
+// Font Styles
+$font-style-prefix: 'fst';
+$font-styles: (
+  'i': italic
+);

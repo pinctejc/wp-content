@@ -1,0 +1,84 @@
+# Translation of Plugins - Head &amp; Footer Code - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Head &amp; Footer Code - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-01-07 18:48:09+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.1\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Head &amp; Footer Code - Stable (latest release)\n"
+
+#: inc/settings.php:127 inc/settings.php:190 inc/settings.php:249
+msgid "Disable"
+msgstr "Désactiver"
+
+#: inc/settings.php:126 inc/settings.php:189 inc/settings.php:248
+msgid "Enable"
+msgstr "Activer"
+
+#: inc/settings.php:219
+msgid "FOOTER Priority"
+msgstr "Priorité du PIED DE PAGE"
+
+#: inc/settings.php:97
+msgid "HEAD Priority"
+msgstr "Priorité l’EN-TÊTE"
+
+#: inc/settings.php:623
+msgid "Donate"
+msgstr "Faire un don"
+
+#: inc/settings.php:619
+msgid "Support"
+msgstr "Forums de support"
+
+#: inc/settings.php:587
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Vous n’avez pas les droits suffisants pour accéder à cette page."
+
+#: inc/settings.php:407
+msgid "Post Types"
+msgstr "Type de publication"
+
+#: inc/settings.php:200
+msgid "FOOTER Code"
+msgstr "Code du PIED DE PAGE"
+
+#: inc/settings.php:78
+msgid "HEAD Code"
+msgstr "Code d’EN-TÊTE"
+
+#: inc/auhfc-category-meta-box.php:86 inc/class-auhfc-meta-box.php:106
+msgid "Footer Code"
+msgstr "Code du pied de page"
+
+#: inc/auhfc-category-meta-box.php:68 inc/class-auhfc-meta-box.php:98
+msgid "Head Code"
+msgstr "Code d’en-tête"
+
+#: inc/auhfc-category-meta-box.php:56 inc/class-auhfc-meta-box.php:92
+#: inc/settings.php:352
+msgid "Behavior"
+msgstr "Comportement"
+
+#. Author URI of the plugin
+msgid "https://urosevic.net/"
+msgstr "https://urosevic.net"
+
+#. Plugin URI of the plugin
+msgid "https://urosevic.net/wordpress/plugins/head-footer-code/"
+msgstr "https://urosevic.net/wordpress/plugins/head-footer-code/"
+
+#. Plugin Name of the plugin
+#: inc/auhfc-category-meta-box.php:34 inc/class-auhfc-meta-box.php:31
+#: inc/helpers.php:46 inc/posts-custom-columns.php:37 templates/settings.php:18
+#: templates/settings.php:41
+msgid "Head & Footer Code"
+msgstr "Head & Footer Code"
+
+#: inc/settings.php:415
+msgid "Select which post types will have Article specific section. Please note, even if you have Head/Footer Code set per article and then you disable that post type, article specific code will not be printed but only site-wide code."
+msgstr "Sélectionnez les types de publication qui afficheront un champ de code spécifique pour l’en-tête ou le pied de page. Veuillez noter que la désactivation d’un type de publication utilise uniquement le code d’en-tête ou de pied de page à l’échelle du site et ne permet pas plus de personnalisation."

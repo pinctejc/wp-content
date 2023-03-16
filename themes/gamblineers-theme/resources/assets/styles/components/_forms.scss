@@ -1,0 +1,73 @@
+/* sass-lint:disable no-vendor-prefixes */
+
+.#{$input-prefix} {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  height: $input-height;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width $inpit-border-style $input-border-color;
+  border-radius: $input-border-raidus;
+  box-shadow: $input-box-shadow;
+  transition: $input-transition;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 16px;
+    }
+
+    &::placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+
+    &::-ms-expand {
+      background-color: transparent;
+      border: none;
+    }
+
+    &::-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 $input-color;
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $input-disabled-bg;
+      opacity: 1;
+    }
+
+    @at-root select#{&} {
+      appearance: none;
+      padding-right: 30px;
+      background: $input-bg $select-arrow no-repeat calc(100% - #{$select-arrow-space}) center;
+
+        &:focus::-ms-value {
+          color: $input-color;
+          background-color: $input-bg;
+        }
+    }
+
+    @at-root textarea#{&} {
+      height: 190px;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 50px;
+      z-index: 2;
+    }
+
+    &--icon {
+      padding-left: 50px;
+    }
+}

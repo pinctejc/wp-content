@@ -1,0 +1,327 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+$speed: 300ms;
+
+.lc {
+
+    .title + & {
+      margin-top: 30px;
+    }
+
+    &--slider {
+
+        @include media-breakpoint-down(sm) {
+
+            .js-casinos-loadmore {
+              display: none !important;
+            }
+
+            .js-list-cta {
+              display: inline-flex !important;
+            }
+        }
+    }
+
+    &--ordered {
+      counter-reset: item;
+    }
+
+    .swiper {
+
+        @include media-breakpoint-up(sm) {
+          overflow: visible;
+        }
+    }
+
+    .swiper-wrapper {
+
+        @include media-breakpoint-up(sm) {
+          transform: translate3d(0, 0, 0) !important;
+        }
+    }
+
+    .swiper-slide {
+
+        @include media-breakpoint-down(xs) {
+          width: auto;
+        }
+    }
+}
+
+.col-thumb {
+
+    .lc--ordered & {
+      counter-increment: item;
+
+        &::before {
+          content: counter(item);
+          position: absolute;
+          color: $white;
+          font-weight: $font-weight-black;
+          text-align: center;
+          z-index: 3;
+          border-radius: 50%;
+          background-color: $primary;
+
+            @include media-breakpoint-up(md) {
+              top: -16px;
+              left: -1px;
+              width: 32px;
+              height: 32px;
+              line-height: 30px;
+              font-size: 16px;
+            }
+
+            @include media-breakpoint-down(sm) {
+              top: -13px;
+              left: 2px;
+              width: 24px;
+              height: 24px;
+              line-height: 22px;
+              font-size: 14px;
+            }
+        }
+
+        &:nth-child(n + 4)::before {
+          color: $black;
+          background-color: $white;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+      @include make-col-size(173, 1230)
+    }
+
+    @include media-breakpoint-down(xs) {
+      flex: 0 0 173px;
+      max-width: 173px;
+    }
+}
+
+.col-casino {
+
+    @include media-breakpoint-up(md) {
+      width: 196px;
+    }
+}
+
+.col-bonus {
+
+    @include media-breakpoint-up(lg) {
+      @include make-col-size(296, 1230)
+    }
+
+    @include media-breakpoint-only(md) {
+      @include make-col-size(270, 1230)
+    }
+}
+
+.col-features {
+
+  @include media-breakpoint-up(md) {
+    @include make-col-size(238, 1230)
+  }
+}
+
+.col-rating {
+
+    @include media-breakpoint-up(md) {
+      @include make-col-size(90, 1230)
+    }
+}
+
+// List Casino
+.cl {
+  transition: height $speed ease-in-out;
+
+    &__badge {
+      top: -6px;
+      right: 5px;
+      z-index: 2;
+    }
+
+    &__type {
+      right: 5px;
+      bottom: -5px;
+      z-index: 2;
+    }
+
+    &__thumb {
+
+        @include media-breakpoint-up(md) {
+          height: 101px;
+        }
+
+        @include media-breakpoint-only(sm) {
+          height: 100px;
+        }
+
+        @include media-breakpoint-down(xs) {
+          height: 98px;
+        }
+    }
+
+    &__code {
+      line-height: 1;
+      z-index: 1;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          background-color: $primary-variant;
+          opacity: .2;
+          border-radius: 5px;
+        }
+    }
+
+    &__bonus {
+
+        &__item {
+
+            &:not(:first-child) {
+              transition: height $speed ease-in-out;
+              height: 0;
+            }
+        }
+    }
+
+    &__benefit {
+      z-index: 1;
+      line-height: 20px;
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+
+        &::before {
+          left: 0;
+          width: 20px;
+          height: 20px;
+          z-index: 1;
+          background-color: $primary-variant;
+          border-radius: 50%;
+          opacity: .2;
+        }
+
+        &::after {
+          width: 12px;
+          height: 9px;
+          left: 4px;
+          background: escape-svg('<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7799 0.220316C11.9203 0.360936 11.9992 0.551567 11.9992 0.750317C11.9992 0.949067 11.9203 1.13969 11.7799 1.28032L4.52985 8.53032C4.38922 8.67072 4.1986 8.74962 3.99985 8.74962C3.8011 8.74962 3.61047 8.67072 3.46985 8.53032L0.219851 5.28032C0.087371 5.13814 0.015251 4.9501 0.018671 4.75579C0.022101 4.56149 0.100811 4.37611 0.238231 4.23869C0.375641 4.10128 0.561031 4.02257 0.755331 4.01914C0.949631 4.01571 1.13767 4.08784 1.27985 4.22032L3.99985 6.94032L10.7199 0.220316C10.8605 0.0798664 11.0511 0.000976562 11.2499 0.000976562C11.4486 0.000976562 11.6393 0.0798664 11.7799 0.220316Z" fill="#6B11C9"/></svg>');
+        }
+    }
+}
+
+.cc {
+
+    @include media-breakpoint-down(xs) {
+      .swiper-slide & {
+        width: 205px;
+      }
+    }
+}
+
+.bc {
+  line-height: 1.2;
+
+    @include media-breakpoint-down(xs) {
+
+        .swiper-slide & {
+          width: 290px;
+        }
+    }
+
+    .lc--ordered & {
+      counter-increment: item;
+
+        &::before {
+          content: counter(item);
+          position: absolute;
+          color: $white;
+          font-weight: $font-weight-black;
+          text-align: center;
+          z-index: 3;
+          border-radius: 50%;
+          background-color: $primary;
+
+            @include media-breakpoint-up(md) {
+              top: -16px;
+              left: -16px;
+              width: 32px;
+              height: 32px;
+              line-height: 30px;
+              font-size: 16px;
+            }
+
+            @include media-breakpoint-down(sm) {
+              top: 0;
+              left: 0;
+              width: 24px;
+              height: 24px;
+              line-height: 22px;
+              font-size: 14px;
+            }
+        }
+    }
+
+    &__bonuses {
+      border-top: 1px dashed #d1d3d9;
+
+        &__more {
+          line-height: 23px;
+
+            li {
+
+                &::before {
+                  content: '';
+                  position: absolute;
+                  top: 8px;
+                  left: 0;
+                  margin: auto;
+                  width: 8px;
+                  height: 8px;
+                  background-color: $primary;
+                  border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    &__bonus {
+      min-height: 48px;
+    }
+
+    &__btns {
+      background: #dfe1e5;
+    }
+
+    &__btn {
+      flex-basis: 0;
+      flex-grow: 1;
+      min-width: 50%;
+      min-height: 30px;
+
+        &.active {
+          color: $white;
+          background-color: $primary-variant;
+        }
+    }
+}

@@ -1,0 +1,260 @@
+.wp-editor {
+  line-height: (30 / 16);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    p,
+    table {
+
+        &:not(:last-child) {
+          margin-bottom: 14px;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $headings-color;
+
+        @include media-breakpoint-up(sm) {
+          clear: both;
+        }
+
+        + img,
+        + p > img {
+
+          @include media-breakpoint-down(xs) {
+            margin-top: 30px;
+          }
+        }
+    }
+
+    h1,
+    h2,
+    h3 {
+      @extend .ta-o-xs-c;
+    }
+
+    li {
+
+        &:not(:last-child) {
+          margin-bottom: 7px;
+        }
+    }
+
+    ul {
+
+        li {
+          @extend .ps-r;
+          // font-weight: $font-weight-medium;
+          padding-left: 23px;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 12px;
+              left: 0;
+              width: 8px;
+              height: 8px;
+              background-color: $primary;
+              border-radius: 50%;
+            }
+        }
+    }
+
+    table {
+      color: $black;
+      width: 100%;
+      border: none;
+      overflow: auto;
+
+        @include media-breakpoint-down(xs) {
+          display: block;
+        }
+    }
+
+    th,
+    td {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: none;
+      font-size: 14px;
+
+        @include media-breakpoint-up(md) {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+
+        @include media-breakpoint-down(sm) {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+    }
+
+    thead {
+
+        th,
+        td {
+          white-space: nowrap;
+          color: $white;
+          font-size: 12px;
+          font-weight: $font-weight-bold;
+          background: $neutral;
+          text-transform: uppercase;
+
+            &:first-child {
+              @include border-left-radius(10px);
+            }
+
+            &:last-child {
+              @include border-right-radius(10px);
+            }
+        }
+    }
+
+    tbody {
+
+        tr {
+
+            &:nth-child(even) {
+
+                td {
+                  background: $light;
+
+                    &:first-child {
+                      @include border-left-radius(10px);
+                    }
+
+                    &:last-child {
+                      @include border-right-radius(10px);
+                    }
+                }
+            }
+        }
+    }
+
+    blockquote {
+      @extend .mb-u-sm-30, .mb-o-xs-20, .py-40, .px-u-sm-40, .px-o-xs-12, .tc-w, .fst-i, .ta-c, .fw-b, .br-12, .fs-18, .ps-r;
+      line-height: ( 37 / 18 );
+      background: $primary-variant url('#{$images-background}blockqoute-bg.svg') 0 0 no-repeat;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: -1px;
+          z-index: 2;
+          border-top-left-radius: inherit;
+          background: url('#{$images-icons}quote.svg') no-repeat center / contain;
+        }
+
+        > p {
+          max-width: 757px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        @include media-breakpoint-up(sm) {
+          clear: both;
+
+            &::before {
+              width: 52px;
+              height: 45px;
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+          background-size: 100px auto;
+
+            &::before {
+              width: 35px;
+              height: 30px;
+            }
+        }
+    }
+}
+
+img,
+.wp-caption {
+
+    &.alignnone,
+    &.aligncenter,
+    &.alignleft,
+    &.alignright {
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    &.alignnone {
+      display: block;
+    }
+
+    &.aligncenter {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.alignleft {
+
+        @include media-breakpoint-up(sm) {
+          float: left;
+          margin-right: 20px;
+        }
+
+        @include media-breakpoint-only(sm) {
+          max-width: 50%;
+        }
+    }
+
+    &.alignright {
+
+        @include media-breakpoint-up(sm) {
+          float: right;
+          margin-left: 20px;
+        }
+
+        @include media-breakpoint-only(sm) {
+          max-width: 50%;
+        }
+    }
+
+    &.alignleft,
+    &.alignright {
+
+        @include media-breakpoint-down(xs) {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+    }
+}
+
+.wp-caption {
+  max-width: 100%;
+  width: auto !important;
+  line-height: 1.2;
+
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+}
+
+.wp-caption-text {
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.wp-video {
+  width: auto !important;
+}

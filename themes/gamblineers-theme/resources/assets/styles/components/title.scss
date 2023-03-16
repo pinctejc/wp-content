@@ -1,0 +1,12 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.title {
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+}

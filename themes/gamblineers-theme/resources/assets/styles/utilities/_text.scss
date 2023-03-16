@@ -1,0 +1,48 @@
+//
+// Text
+//
+// .title {
+//   @extend %headings;
+// }
+
+// Headigns
+@for $i from 1 through 6 {
+
+  .h#{$i} {
+    font-weight: map-get($headings-font-weights, h#{$i});
+
+    @include media-breakpoint-up(sm) {
+      font-size: map-get($heading-desktop, h#{$i});
+    }
+
+    @include media-breakpoint-down(xs) {
+      font-size: map-get($heading-mobile, h#{$i});
+    }
+  }
+}
+
+// Text Colors
+@include make-text-colors();
+
+// Text Align
+@include make-text-aligns();
+
+// Text Transform
+@include make-text-transforms();
+
+// Text Decoration
+@include make-text-decorations();
+
+// Font Sizes
+@include make-font-sizes();
+
+// Font Weights
+@include make-font-weights();
+
+// Font Styles
+@include make-font-styles();
+
+// White Space
+.ws-nw {
+  white-space: nowrap;
+}

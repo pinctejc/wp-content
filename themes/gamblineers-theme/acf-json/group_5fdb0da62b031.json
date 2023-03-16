@@ -1,0 +1,100 @@
+{
+    "key": "group_5fdb0da62b031",
+    "title": "Columns Layout",
+    "fields": [
+        {
+            "key": "field_5fdb0dfc24274",
+            "label": "Layout",
+            "name": "layout",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5fdb0e7d24275",
+                    "label": "Desktop",
+                    "name": "ld",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "0": "One column",
+                        "row-u-sm row-u-sm-6": "Two Columns",
+                        "row-u-sm row-u-sm-4": "Three Columns",
+                        "row-u-sm row-u-sm-3": "Four Columns",
+                        "row-u-sm row-u-sm-2-3": "2 \/ 3 to 1 \/ 3",
+                        "row-u-sm row-u-sm-3-2": "1 \/ 3 to 2 \/ 3"
+                    },
+                    "default_value": 0,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5fdb0eab24276",
+                    "label": "Mobile",
+                    "name": "lm",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "0": "One column",
+                        "row-o-xs row-o-xs-6": "Two Columns",
+                        "row-o-xs row-o-xs-4": "Three Columns",
+                        "row-o-xs row-o-xs-3": "Four Columns",
+                        "row-o-xs row-o-xs-2-3": "2 \/ 3 to 1 \/ 3",
+                        "row-o-xs row-o-xs-3-2": "1 \/ 3 to 2 \/ 3"
+                    },
+                    "default_value": 0,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": ""
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1643092682
+}

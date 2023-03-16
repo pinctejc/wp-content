@@ -1,0 +1,58 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.tabs {
+
+    &__btns {
+      background: #e2e5ed;
+    }
+
+    &__btn {
+
+        @include media-breakpoint-up(sm) {
+
+            &:first-child {
+
+                &:not(.active):hover {
+                  border-top-left-radius: 14px;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+
+        &.active {
+          color: $white;
+          background-color: $primary-variant;
+
+            @include media-breakpoint-up(sm) {
+              font-size: 16px;
+              padding-bottom: 30px;
+
+                &::before {
+                  content: '';
+                  position: absolute;
+                  right: 0;
+                  bottom: 100%;
+                  left: 0;
+                  height: 10px;
+                  background-color: inherit;
+                  @include border-top-radius(14px);
+                }
+            }
+        }
+    }
+}
+
+.tab {
+
+    &:not(.active) {
+      display: none;
+    }
+}

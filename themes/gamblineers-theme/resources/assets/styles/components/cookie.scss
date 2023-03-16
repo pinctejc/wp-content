@@ -1,0 +1,27 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.cookie {
+  z-index: 5;
+  max-width: 375px;
+  box-shadow: 0 2px 10px rgba(#99a1ba, .2);
+
+    @include media-breakpoint-up(sm) {
+      right: 10px;
+      bottom: 10px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &__btn {
+      top: 0;
+      right: 0;
+    }
+}

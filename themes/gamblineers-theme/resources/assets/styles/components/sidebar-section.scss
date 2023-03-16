@@ -1,0 +1,21 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.col-sidebar {
+
+    @include media-breakpoint-up(md) {
+      flex: 0 0 314px;
+      max-width: 314px;
+    }
+}
+
+.col-content {
+
+    @include media-breakpoint-up(md) {
+      flex: 0 0 calc(100% - 314px);
+      max-width: calc(100% - 314px);
+    }
+}

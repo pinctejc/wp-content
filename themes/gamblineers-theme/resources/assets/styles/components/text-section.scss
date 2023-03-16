@@ -1,0 +1,12 @@
+// Tools
+@import '../tools';
+
+// Settings
+@import '../settings';
+
+.ts {
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+}

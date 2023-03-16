@@ -1,0 +1,58 @@
+$black: #000;
+$white: #fff;
+
+$yiq-text-dark: $black;
+$yiq-text-light: $white;
+$yiq-contrasted-threshold: 150;
+
+$primary: var(--primary);
+$primary-hover: var(--primary-hover);
+$primary-variant: var(--primary-variant);
+$primary-variant-hover: var(--primary-variant-hover);
+$secondary: var(--secondary);
+$secondary-variant: var(--secondary-variant);
+$secondary-hover: var(--secondary-hover);
+$secondary-variant-hover: var(--secondary-varinat-hover);
+$neutral: var(--neutral);
+$neutral-hover: var(--neutral-hover);
+$dark: var(--dark);
+$dark-hover: var(--dark-hover);
+$light: var(--light);
+$light-hover: var(--light-hover);
+
+$text-color: var(--text-color);
+$link-color: var(--link-color);
+$link-hover-color: var(--link-hover-color);
+$headings-color: var(--headings-color);
+
+// $text-dark: #303834;
+// $text-black: #0e0f0e;
+// $text-soft: #92959f;
+// $text-light: #f4f4e0;
+
+$transparent-10: rgba(#232222, .1);
+
+$box-shadow-1: 0 8px 14px rgba($black, .15);
+
+$body-color: $text-color;
+$body-bg: $white;
+
+$theme-colors: (
+  'p': $primary,
+  'pv': $primary-variant,
+  's': $secondary,
+  'sv': $secondary-variant,
+  'n': $neutral,
+  'd': $dark,
+  'l': $light,
+);
+
+$theme-hover-colors: (
+  'p': $primary-hover,
+  'pv': $primary-variant-hover,
+  's': $secondary-hover,
+  'sv': $secondary-variant-hover,
+  'n': $neutral-hover,
+  'd': $dark-hover,
+  'l': $light-hover,
+);

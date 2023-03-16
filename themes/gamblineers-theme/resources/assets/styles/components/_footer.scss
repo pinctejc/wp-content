@@ -1,0 +1,89 @@
+.f-menu-title {
+
+    @include media-breakpoint-up(sm) {
+      cursor: default;
+    }
+
+    @include media-breakpoint-down(sm) {
+      position: relative;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto 0;
+          width: 18px;
+          height: 18px;
+        }
+
+        &::before {
+          border-radius: 50%;
+          background-color: $white;
+        }
+
+        &::after {
+          background: escape-svg('<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.875 0C2.97445 0 3.06984 0.03951 3.14016 0.109835C3.21049 0.18016 3.25 0.275545 3.25 0.375V2.5H5.375C5.47445 2.5 5.56985 2.53951 5.64015 2.60983C5.7105 2.68016 5.75 2.77555 5.75 2.875C5.75 2.97445 5.7105 3.06984 5.64015 3.14016C5.56985 3.21049 5.47445 3.25 5.375 3.25H3.25V5.375C3.25 5.47445 3.21049 5.56985 3.14016 5.64015C3.06984 5.7105 2.97445 5.75 2.875 5.75C2.77555 5.75 2.68016 5.7105 2.60983 5.64015C2.53951 5.56985 2.5 5.47445 2.5 5.375V3.25H0.375C0.275545 3.25 0.18016 3.21049 0.109835 3.14016C0.03951 3.06984 0 2.97445 0 2.875C0 2.77555 0.03951 2.68016 0.109835 2.60983C0.18016 2.53951 0.275545 2.5 0.375 2.5H2.5V0.375C2.5 0.275545 2.53951 0.18016 2.60983 0.109835C2.68016 0.03951 2.77555 0 2.875 0Z" fill="#303030"/></svg>') center no-repeat;
+        }
+
+        &.active {
+          border-bottom-color: transparent;
+
+            &::before {
+              background-color: $secondary;
+            }
+
+            &::after {
+              background-image: escape-svg('<svg width="6" height="2" viewBox="0 0 6 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.875C0 0.667893 0.167893 0.5 0.375 0.5H5.375C5.58211 0.5 5.75 0.667893 5.75 0.875C5.75 1.08211 5.58211 1.25 5.375 1.25H0.375C0.167893 1.25 0 1.08211 0 0.875Z" fill="white"/></svg>');
+            }
+        }
+    }
+}
+
+.f-menu {
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      display: none;
+
+        .active & {
+          display: block;
+        }
+    }
+
+    a {
+      color: inherit;
+    }
+
+    li {
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.3;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: 0;
+          width: 10px;
+          height: 2px;
+          background: escape-svg('<svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 1C0 0.447715 0.447715 0 1 0H9C9.55228 0 10 0.447715 10 1V1C10 1.55228 9.55228 2 9 2H1C0.447716 2 0 1.55228 0 1V1Z" fill="#6B11C9"/></svg>');
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+    }
+}
+
+.scroll-top {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+}
